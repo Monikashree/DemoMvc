@@ -1,0 +1,28 @@
+﻿@model OnlineTrainTicketBooking.User
+
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<h2>SignIn</h2>
+@{Html.RenderPartial("View");}
+
+@using (Html.BeginForm("SignIn", "Home", FormMethod.Post))
+{
+    <table class="signUp">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.FirstName)</td>
+            <td>@Html.TextBoxFor(Model => Model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Password)</td>
+            <td>@Html.TextBoxFor(Model => Model.Password)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="SignUp" id="btnSubmit"></td>
+            <td><input type="submit" value="SignIn" id="btnSubmit"></td>
+        </tr>
+    </table>
+}
+

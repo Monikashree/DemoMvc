@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingMVC", "OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC.csproj", "{641F023E-5BF5-4F83-862E-A9B69C3FD37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Entity", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBookingApp.Entity.csproj", "{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.PL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.PL\OnlineTrainTicketBookingApp.PL.csproj", "{8697ACB5-C53B-4AC6-9EB1-D09C01355968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.DAL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.DAL\OnlineTrainTicketBookingApp.DAL.csproj", "{ECE1698E-7607-4F18-8362-10E8A36BE86B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Common", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\OnlineTrainTicketBookingApp.Common.csproj", "{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.BL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.BL\OnlineTrainTicketBookingApp.BL.csproj", "{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+﻿@model OnlineTrainTicketBooking.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+<table border="1">
+    <tr>
+        <td>Firstname
+        <td>LastName</td>
+        <td>Age</td>
+        <td>Sex</td>
+        <td>Email</td>
+        <td>Mobile Number</td>
+        <td>Password</td>
+        <td>Role</td>        
+    </tr>
+    @foreach(OnlineTrainTicketBooking.User user in (List<OnlineTrainTicketBooking.User>)ViewData["details"])
+    {
+        <tr>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.Age</td>
+            <td>@user.Sex</td>
+            <td>@user.Email</td>
+            <td>@user.MobileNum</td>
+            <td>@user.Password</td>
+            <td>@user.Status</td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new {FirstName = user.FirstName } )
+                @Html.ActionLink("Delete", "Delete", new { FirstName = user.FirstName })
+            </td>*@
+        </tr>
+    }
+</table>
+

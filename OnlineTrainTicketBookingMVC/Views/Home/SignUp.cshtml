@@ -1,0 +1,76 @@
+﻿@model OnlineTrainTicketBooking.User
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<h2>SignUp</h2>
+
+@using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+{
+    <table class="signUp">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.FirstName)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.FirstName)
+                @Html.ValidationMessageFor(M => M.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.LastName)</td>
+            <td>
+            @Html.TextBoxFor(Model => Model.LastName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Age)</td>
+            <td>@Html.TextBoxFor(Model => Model.Age)
+                @Html.ValidationMessageFor(M => M.Age)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Sex)</td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Sex, "Male") Male
+                @Html.RadioButtonFor(Model => Model.Sex, "Female") Female
+                @Html.RadioButtonFor(Model => Model.Sex, "Others") Others
+                @Html.ValidationMessageFor(M => M.Sex)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Email)</td>
+            <td>@Html.TextBoxFor(Model => Model.Email)
+                @Html.ValidationMessageFor(M => M.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.MobileNum)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MobileNum)
+                @Html.ValidationMessageFor(M => M.MobileNum)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Password)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Password)
+                @Html.ValidationMessageFor(M => M.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.ConfirmPassword)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ConfirmPassword)
+                @Html.ValidationMessageFor(M => M.ConfirmPassword)
+            </td>
+        </tr>        
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Status)</td>
+            <td>@Html.EnumDropDownListFor(Model => Model.Status, "Your Role" )</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="SignUp" id="btnSubmit" style="align: center"></td>            
+        </tr>
+    </table>
+}
+
