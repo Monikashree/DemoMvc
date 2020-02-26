@@ -28,6 +28,8 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         public ActionResult SignUp_Get()
         {            
             return View();
+
+
         }
         [HttpPost]
         [ActionName("SignUp")]  /*Code for binding*/
