@@ -31,16 +31,19 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
         [HttpPost]
         [ActionName("SignUp")]  /*Code for binding*/
-        public ActionResult SignUp_Post([Bind(/*Include*/Exclude  = "FirstName, Age, Sex, Email, MobileNum, Password")]User user)
+                                //public ActionResult SignUp_Post([Bind(/*Include*/Exclude  = "FirstName, Age, Sex, Email, MobileNum, Password")]User user)
+        public ActionResult SignUp_Post()
         {
-            //User user = new User();
-            //TryUpdateModel(user);         
-            //if (ModelState.IsValid)
+            User user = new User();
+            TryUpdateModel(user);
+            IEnumerable<User> userList = UserRepository.Database();
+            if (ModelState.IsValid)
             {
                 userRepository.AddUserDetails(user);
                 return RedirectToAction("Index");
             }
-            //return View();
+
+            return View();
         }
 
         public ActionResult SignIn()
