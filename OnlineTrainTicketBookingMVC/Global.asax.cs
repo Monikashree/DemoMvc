@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using OnlineTrainTicketBookingMVC.App_Start;
+using OnlineTrainTicketBookingMVC.Models;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -13,6 +11,8 @@ namespace OnlineTrainTicketBookingMVC
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MappingConfig.RegisterMaps();
+            FilterConfig.RegisterActionFilters(GlobalFilters.Filters);
         }
     }
 }

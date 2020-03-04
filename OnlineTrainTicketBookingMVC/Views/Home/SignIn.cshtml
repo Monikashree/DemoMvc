@@ -1,16 +1,17 @@
-﻿@model OnlineTrainTicketBooking.User
+﻿@model OnlineTrainTicketBookingMVC.Models.SignInViewModel
 
 @{
     ViewBag.Title = "SignIn";
-    Layout = "~/Views/Shared/MasterPage.cshtml";
+   
 }
 
 <h2>SignIn</h2>
-@{Html.RenderPartial("View");}
+
+@*@{Html.RenderPartial("View");}*@
 
 @using (Html.BeginForm("SignIn", "Home", FormMethod.Post))
 {
-    <table class="signUp">
+    @*<table class="signUp">
         <tr>
             <td>@Html.LabelFor(Model => Model.FirstName)</td>
             <td>@Html.TextBoxFor(Model => Model.FirstName)</td>
@@ -23,6 +24,26 @@
             <td><input type="submit" value="SignUp" id="btnSubmit"></td>
             <td><input type="submit" value="SignIn" id="btnSubmit"></td>
         </tr>
-    </table>
-}
+    </table>*@
 
+
+    <div class="box">
+        <form>
+            <span class="text-center">Signin</span>
+            <div class="input-container">
+                @*<input type="text" required="" />*@
+                @Html.TextBoxFor(Model => Model.UserName )
+                @Html.LabelFor(Model => Model.UserName)
+                @Html.ValidationMessageFor(M => M.UserName, "", new { @class = "validationMsg" })
+            </div>
+            <div class="input-container">
+                @*<input type="password" required="" />*@
+                @Html.PasswordFor(Model => Model.Password)
+                @Html.LabelFor(Model => Model.Password)
+                @Html.ValidationMessageFor(M => M.Password, "", new { @class = "validationMsg" })
+            </div>
+            <input type="submit" value="SignUp" id="btnSubmit" class="btn" onchange="SignUp.cshtml">
+            <input type="submit" value="SignIn" id="btnSubmit" class="btn">
+</form>
+    </div>
+}

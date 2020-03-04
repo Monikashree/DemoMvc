@@ -1,9 +1,13 @@
-﻿@model OnlineTrainTicketBooking.User
+﻿@*@model OnlineTrainTicketBookingMVC.Models.UserViewModel*@
+
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/MasterPage.cshtml";
+    
 }
-<table border="1">
+
+<div class="box"><h2>@TempData["Message"].ToString()</h2></div>
+
+@*<table border="1">
     <tr>
         <td>Firstname
         <td>LastName</td>
@@ -12,9 +16,9 @@
         <td>Email</td>
         <td>Mobile Number</td>
         <td>Password</td>
-        <td>Role</td>        
+        <td>Role</td>
     </tr>
-    @foreach(OnlineTrainTicketBooking.User user in (List<OnlineTrainTicketBooking.User>)ViewData["details"])
+    @foreach (OnlineTrainTicketBookingMVC.Models.UserViewModel user in Model)
     {
         <tr>
             <td>@user.FirstName</td>
@@ -22,14 +26,13 @@
             <td>@user.Age</td>
             <td>@user.Sex</td>
             <td>@user.Email</td>
-            <td>@user.MobileNum</td>
+            <td>@user.MobileNumber</td>
             <td>@user.Password</td>
-            <td>@user.Status</td>
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new {FirstName = user.FirstName } )
-                @Html.ActionLink("Delete", "Delete", new { FirstName = user.FirstName })
-            </td>*@
+            <td>@user.Role</td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {FirstName = user.FirstName } )
+                    @Html.ActionLink("Delete", "Delete", new { FirstName = user.FirstName })
+                </td>
         </tr>
     }
-</table>
-
+</table>*@
