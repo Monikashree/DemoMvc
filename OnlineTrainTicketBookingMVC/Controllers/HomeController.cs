@@ -74,7 +74,6 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                         TempData["Message"] = "Please Try Again";
                     TempData["Message"] = "Registration Successfull";
                     return RedirectToAction("Index");
-
                 }
                 return View();
             }
