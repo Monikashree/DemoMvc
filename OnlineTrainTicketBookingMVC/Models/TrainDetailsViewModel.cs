@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineTrainTicketBookingMVC.Models
@@ -25,6 +26,7 @@ namespace OnlineTrainTicketBookingMVC.Models
         public string ArrivalTime { get; set; }
 
         [Required(ErrorMessage = "TrainKM is required")]
+        //[DataType(dataType:DateTime)]
         public int TrainKM { get; set; }
 
         [Required(ErrorMessage = "Total seats is required")]
@@ -32,5 +34,9 @@ namespace OnlineTrainTicketBookingMVC.Models
 
         [Required(ErrorMessage = "PerTicket cost is required")]
         public int PerTicketCost { get; set; }
+
+        //public int[] TrainClass { get; set; }
+
+        public IList<TrainClassDetails> TrainClassDetails { get; set; }
     }
 }

@@ -29,10 +29,7 @@
             <td>
                 @Html.TextBoxFor(Model => Model.Age)
                 @Html.ValidationMessageFor(M => M.Age, "", new { @class = "validationMsg" })
-                @if (TempData["Message"] != null)
-                {
-                    @TempData["Message"].ToString();
-                }
+                
             </td>
         </tr>
         <tr >

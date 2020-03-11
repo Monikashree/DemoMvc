@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using OnlineTrainTicketBookingApp.Entity;
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
@@ -12,6 +9,7 @@ namespace OnlineTrainTicketBookingMVC.Models
             AutoMapper.Mapper.Initialize(config =>
             {
                 config.CreateMap < UserViewModel,User >();
+                config.CreateMap<TrainDetailsViewModel, TrainDetails>();
             });
         }
     }

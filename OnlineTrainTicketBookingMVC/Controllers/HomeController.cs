@@ -69,7 +69,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     //};
                     userViewModel.Role = "User";
                     User user = AutoMapper.Mapper.Map<UserViewModel, User>(userViewModel);  //Automapping
-                    bool status = RailwayPathToDAL.AddUserDetails(user);
+                    bool status = UserBL.AddUserDetails(user);
                     if (status == false)
                         TempData["Message"] = "Please Try Again";
                     TempData["Message"] = "Registration Successfull";
@@ -96,16 +96,25 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<User> userDetails = RailwayPathToDAL.GetUserDetails();
-                foreach (var value in userDetails)
+                //List<User> userDetails = RailwayBL.GetUserDetails();
+                //foreach (var value in userDetails)
+                //{
+                //    if (value.FirstName.Equals(signInViewModel.UserName) && value.Password.Equals(signInViewModel.Password))
+                //    {
+                //        if (value.Role.Equals("Admin"))
+                //            return RedirectToAction("Index", "TrainDetails");
+                //        return RedirectToAction("Index", "User");
+                //    }
+                //}
+                User user = UserBL.SignIn(signInViewModel.UserName, signInViewModel.Password);
+                if (user != null)
                 {
-                    if (value.FirstName.Equals(signInViewModel.UserName) && value.Password.Equals(signInViewModel.Password))
-                    {
-                        if (value.Role.Equals("Admin"))
-                            return RedirectToAction("Index", "Admin");
-                        return RedirectToAction("Index", "User");
-                    }
+                    if (user.Role.Equals("Admin"))
+                        return RedirectToAction("Index", "TrainDetails");
+                    return RedirectToAction("Index", "User");
                 }
+                TempData["Message"] = "Incorrect Username or Password";
+                return RedirectToAction("Index");
             }
             return View();
         }

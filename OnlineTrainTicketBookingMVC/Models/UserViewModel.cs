@@ -19,6 +19,7 @@ namespace OnlineTrainTicketBookingMVC.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Age is required")]
+        [Range(18, 100, ErrorMessage = "Enter Valid age")]
         //[RegularExpression("^ 0 ? ([1 - 9][0 - 9])$", ErrorMessage = "Enter Valid Age")]
         public short Age { get; set; }
 
