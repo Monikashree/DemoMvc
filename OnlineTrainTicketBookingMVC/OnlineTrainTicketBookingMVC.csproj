@@ -161,7 +161,9 @@
   <ItemGroup>
     <Compile Include="App_Start\CustomError.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\TrainClassController.cs" />
     <Compile Include="Controllers\TrainDetailsController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -169,9 +171,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\MappingConfig.cs" />
     <Compile Include="Models\SignInViewModel.cs" />
-    <Compile Include="Models\TrainClassDetails.cs" />
+    <Compile Include="Models\TrainClassDetailsViewModel.cs" />
     <Compile Include="Models\TrainClassViewModel.cs" />
     <Compile Include="Models\TrainDetailsViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -198,6 +199,9 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\TrainDetails\Create.cshtml" />
+    <Content Include="Views\TrainClass\AddTrainClass.cshtml" />
+    <Content Include="Views\TrainClass\DisplayTrainCategories.cshtml" />
+    <Content Include="Views\TrainClass\EditTrainClass.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,4 @@
-﻿using OnlineTrainTicketBookingApp.BL;
+﻿using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -52,8 +52,8 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         public ActionResult SignUp_Post(UserViewModel userViewModel)
         {
             //TryUpdateModel(user);
-            if (userViewModel.Age > 17 && userViewModel.Age < 100)
-            {
+            //if (userViewModel.Age > 17 && userViewModel.Age < 100)
+            //{
                 if (ModelState.IsValid)
                 {
                     //User user = new User
@@ -76,12 +76,12 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     return RedirectToAction("Index");
                 }
                 return View();
-            }
-            else
-            {
-                TempData["Message"] = "Age is invalid";
-                return View();
-            }
+            //}
+            //else
+            //{
+            //    TempData["Message"] = "Age is invalid";
+            //    return View();
+            //}
 
         }
         [HttpGet]

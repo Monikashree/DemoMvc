@@ -1,5 +1,4 @@
 ﻿using OnlineTrainTicketBookingMVC.App_Start;
-using OnlineTrainTicketBookingMVC.Models;
 using System.Web.Mvc;
 using System.Web.Routing;
 

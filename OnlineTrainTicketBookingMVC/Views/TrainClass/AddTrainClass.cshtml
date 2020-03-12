@@ -1,0 +1,50 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.TrainClassDetailsViewModel
+
+@{
+    ViewBag.Title = "AddTrainClass";
+}
+
+<h2>AddTrainClass</h2>
+
+
+@using (Html.BeginForm("AddTrainClass", "TrainClass", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.TrainNo)
+    <table class="box">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.TrainNo)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.TrainNo, new { @maxlength = 5 })
+                @Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.ClassId)</td>
+            <td>
+               @Html.DropDownListFor(Model => Model.ClassId, (List<SelectListItem>)ViewBag.classes, "--Select Class--")
+               @Html.ValidationMessageFor(Model => Model.ClassId, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Seats)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Seats, new { @maxlength = 5 })
+                @Html.ValidationMessageFor(M => M.Seats, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Cost)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Cost, new { @maxlength = 5 })
+                @Html.ValidationMessageFor(M => M.Cost, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add" id="btnSubmit" class="btn"></td>
+        </tr>
+    </table>
+}
+<div>
+    @Html.ActionLink("Back to List", "DisplayTrainCategories")
+</div>

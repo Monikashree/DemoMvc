@@ -8,6 +8,13 @@
 {
     <table class="box">
         <tr>
+            <td>@Html.LabelFor(Model => Model.TrainNo)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.TrainNo, new { @maxlength = 5 })
+                @Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
             <td>@Html.LabelFor(Model => Model.TrainName)</td>
             <td>
                 @Html.TextBoxFor(Model => Model.TrainName, new { @maxlength = 30 })
@@ -43,13 +50,13 @@
                 @Html.ValidationMessageFor(M => M.ArrivalTime, "", new { @class = "validationMsg" })
             </td>
         </tr>
-        <tr>
+        @*<tr>
             <td>@Html.LabelFor(Model => Model.TrainClass)</td>
             <td>
                 @Html.ListBoxFor(Model => Model.TrainClass, (IEnumerable<SelectListItem>)ViewBag.TrainClass ,"Select")
                 @Html.ValidationMessageFor(M => M.TrainClass, "", new { @class = "validationMsg" })
             </td>
-        </tr>
+        </tr>*@
         <tr>
             <td>@Html.LabelFor(Model => Model.TrainKM)</td>
             <td>
@@ -57,22 +64,25 @@
                 @Html.ValidationMessageFor(M => M.TrainKM, "", new { @class = "validationMsg" })
             </td>
         </tr>
-        <tr>
+        @*<tr>
             <td>@Html.LabelFor(Model => Model.TotalSeats)</td>
             <td>
                 @Html.EditorFor(Model => Model.TotalSeats)
                 @Html.ValidationMessageFor(M => M.TotalSeats, "", new { @class = "validationMsg" })
             </td>
-        </tr>
+        </tr>*@
         <tr>
-            <td>@Html.LabelFor(Model => Model.PerTicketCost)</td>
+            <td>@Html.LabelFor(Model => Model.PerKMCost)</td>
             <td>
-                @Html.EditorFor(Model => Model.PerTicketCost)
-                @Html.ValidationMessageFor(M => M.PerTicketCost, "", new { @class = "validationMsg" })
+                @Html.EditorFor(Model => Model.PerKMCost)
+                @Html.ValidationMessageFor(M => M.PerKMCost, "", new { @class = "validationMsg" })
             </td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit" id="btnSubmit" class="btn"></td>
+        </tr>
+        <tr>
+            @Html.ActionLink("Back to List", "DisplayTrainDetails")
         </tr>
     </table>
 }

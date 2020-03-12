@@ -29,14 +29,14 @@ namespace OnlineTrainTicketBookingMVC.Models
         //[DataType(dataType:DateTime)]
         public int TrainKM { get; set; }
 
-        [Required(ErrorMessage = "Total seats is required")]
-        public int TotalSeats { get; set; }
+        //[Required(ErrorMessage = "Total seats is required")]
+        //public int TotalSeats { get; set; }
 
-        [Required(ErrorMessage = "PerTicket cost is required")]
-        public int PerTicketCost { get; set; }
+        [Required(ErrorMessage = "PerKM cost is required")]
+        public int PerKMCost { get; set; }
 
         //public int[] TrainClass { get; set; }
 
-        public IList<TrainClassDetails> TrainClassDetails { get; set; }
+        public IList<TrainClassDetailsViewModel> TrainClassDetails { get; set; }
     }
 }

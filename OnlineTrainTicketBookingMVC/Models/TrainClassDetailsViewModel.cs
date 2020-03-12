@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
-    public class TrainClassDetails
+    public class TrainClassDetailsViewModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

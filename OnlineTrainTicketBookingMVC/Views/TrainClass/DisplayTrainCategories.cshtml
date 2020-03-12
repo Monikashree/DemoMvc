@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineTrainTicketBookingMVC.Models.TrainClassDetailsViewModel>
+
+@{
+    ViewBag.Title = "DisplayTrainCategories";
+}
+
+
+
+@if (TempData["TrainNo"] != null)
+{
+    TempData.Keep("TrainNo");
+}
+ <centre>
+     <h2>TrainCategories</h2>
+ </centre>
+<table class="box">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.ClassId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Seats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Cost)
+        </th>
+    </tr>
+    @foreach(var data in Model)
+    {
+        
+        <tr>
+            @Html.HiddenFor(modelItem => data.TrainClassDetailsId)
+            <td>
+                @Html.DisplayFor(modelItem => data.ClassId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => data.Seats)
+            </td>
+            <td>
+                @Html.LabelFor(modelItem => data.Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditTrainClass", new { TrainClassDetailsId = data.TrainClassDetailsId })
+                @Html.ActionLink("Delete", "DeleteTrainClass", new { TrainClassDetailsId = data.TrainClassDetailsId  })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Save", "DisplayTrainDetails", "TrainDetails")
+</p>

@@ -1,0 +1,38 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.TrainClassDetailsViewModel
+
+@{
+    ViewBag.Title = "EditTrainClass";
+}
+
+<h2>EditTrainClass</h2>
+@using (Html.BeginForm("EditTrainClass", "TrainClass", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.TrainNo)
+    <table class="box">
+        <tr>
+            @Html.HiddenFor(Model => Model.TrainClassDetailsId)
+            @Html.HiddenFor(Model => Model.ClassId)
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Seats)</td>
+            <td>
+                @Html.EditorFor(Model => Model.Seats)
+                @Html.ValidationMessageFor(M => M.Seats, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Cost)</td>
+            <td>
+                @Html.EditorFor(Model => Model.Cost)
+                @Html.ValidationMessageFor(M => M.Cost, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save" id="btnSubmit" class="btn"></td>
+        </tr>
+    </table>
+}
+<div>
+    @Html.ActionLink("Back to List", "DisplayTrainCategories")
+</div>
