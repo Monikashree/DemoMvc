@@ -202,6 +202,8 @@
     <Content Include="Views\TrainClass\AddTrainClass.cshtml" />
     <Content Include="Views\TrainClass\DisplayTrainCategories.cshtml" />
     <Content Include="Views\TrainClass\EditTrainClass.cshtml" />
+    <Content Include="Views\TrainDetails\DisplayTrainDetails.cshtml" />
+    <Content Include="Views\TrainDetails\EditTrainDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,7 +14,9 @@ namespace OnlineTrainTicketBookingMVC.App_Start
                 config.CreateMap<TrainClassDetails, TrainClassDetailsViewModel>();
                 config.CreateMap<TrainClassDetailsViewModel, TrainClassDetails>();
                 config.CreateMap<TrainDetails, TrainDetailsViewModel>();
+
             });
+
         }
     }
 }

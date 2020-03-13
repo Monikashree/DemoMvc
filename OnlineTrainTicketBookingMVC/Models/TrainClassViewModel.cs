@@ -12,6 +12,7 @@ namespace OnlineTrainTicketBookingMVC.Models
 
         [Required]
         [MaxLength(25)]
+        [Display(Name = "Class Name")]
         [RegularExpression("^[A-Z][a-z]*[0-9]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z) (0-9)")]
         public string ClassName { get; set; }
 

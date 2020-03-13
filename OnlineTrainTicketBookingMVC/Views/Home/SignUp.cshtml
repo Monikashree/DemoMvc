@@ -11,14 +11,14 @@
     <table class="box">
        
         <tr >
-            <td>@Html.LabelFor(Model => Model.FirstName)</td>
+            <td>@Html.DisplayNameFor(Model => Model.FirstName)</td>
             <td>
                 @Html.TextBoxFor(Model => Model.FirstName, new {@maxlength = 20})
                 @Html.ValidationMessageFor(M => M.FirstName, "",new { @class= "validationMsg"})
             </td>
         </tr >
         <tr >
-            <td>@Html.LabelFor(Model => Model.LastName)</td>
+            <td>@Html.DisplayNameFor(Model => Model.LastName)</td>
             <td>
                 @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = 20 })
                 @Html.ValidationMessageFor(M => M.LastName, "", new { @class = "validationMsg" })
@@ -49,7 +49,7 @@
             </td>
         </tr>
         <tr >
-            <td>@Html.LabelFor(Model => Model.MobileNumber)</td>
+            <td>@Html.DisplayNameFor(Model => Model.MobileNumber)</td>
             <td>
                 @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = 10 })
                 @Html.ValidationMessageFor(M => M.MobileNumber, "", new { @class = "validationMsg" })
@@ -63,7 +63,7 @@
             </td>
         </tr>
         <tr >
-            <td>@Html.LabelFor(Model => Model.ConfirmPassword)</td>
+            <td>@Html.DisplayNameFor(Model => Model.ConfirmPassword)</td>
             <td>
                 @Html.TextBoxFor(Model => Model.ConfirmPassword, new { @maxlength = 15})
                 @Html.ValidationMessageFor(M => M.ConfirmPassword, "", new { @class = "validationMsg" })

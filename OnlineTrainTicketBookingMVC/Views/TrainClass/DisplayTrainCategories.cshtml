@@ -12,9 +12,18 @@
 }
  <centre>
      <h2>TrainCategories</h2>
+     
  </centre>
 <table class="box">
+    <centre>
+        <tr>
+            @Html.ActionLink("Add TrainClass", "AddTrainClass", new { code = TempData["TrainNo"] })
+        </tr>
+    </centre>
+    
+    
     <tr>
+    <td>@TempData["TrainNo"].ToString()</td>
         <th>
             @Html.DisplayNameFor(Model => Model.ClassId)
         </th>
@@ -37,11 +46,11 @@
                 @Html.DisplayFor(modelItem => data.Seats)
             </td>
             <td>
-                @Html.LabelFor(modelItem => data.Cost)
+                @Html.DisplayFor(modelItem => data.Cost)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditTrainClass", new { TrainClassDetailsId = data.TrainClassDetailsId })
-                @Html.ActionLink("Delete", "DeleteTrainClass", new { TrainClassDetailsId = data.TrainClassDetailsId  })
+                @Html.ActionLink("Edit", "EditTrainClass", new { id = data.TrainClassDetailsId })
+                @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId  })
             </td>
         </tr>
     }

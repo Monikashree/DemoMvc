@@ -1,42 +1,44 @@
 ﻿@model OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "EditTrainDetails";
 }
 
-@using (Html.BeginForm("Create", "TrainDetails", FormMethod.Post))
+<h2>EditTrainDetails</h2>
+@using (Html.BeginForm("EditTrainDetails", "TrainDetails", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+   
     <table class="box">
+        
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.TrainNo)</td>
             <td>
-                @Html.TextBoxFor(Model => Model.TrainNo, new { @maxlength = 5 })
+                @Html.EditorFor(Model => Model.TrainNo)
                 @Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })
             </td>
         </tr>
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.TrainName)</td>
             <td>
-                @Html.TextBoxFor(Model => Model.TrainName, new { @maxlength = 30 })
+                @Html.EditorFor(Model => Model.TrainName)
                 @Html.ValidationMessageFor(M => M.TrainName, "", new { @class = "validationMsg" })
             </td>
         </tr>
-       
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.SourceStation)</td>
             <td>
-                @Html.TextBoxFor(Model => Model.SourceStation, new { @maxlength = 20 })
+                @Html.EditorFor(Model => Model.SourceStation)
                 @Html.ValidationMessageFor(M => M.SourceStation, "", new { @class = "validationMsg" })
             </td>
-        </tr> 
+        </tr>
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.DestinationStation)</td>
             <td>
-                @Html.TextBoxFor(Model => Model.DestinationStation, new { @maxlength = 20 })
+                @Html.EditorFor(Model => Model.DestinationStation)
                 @Html.ValidationMessageFor(M => M.DestinationStation, "", new { @class = "validationMsg" })
             </td>
-        </tr>        
+        </tr>
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.DepartureTime)</td>
             <td>
@@ -51,13 +53,6 @@
                 @Html.ValidationMessageFor(M => M.ArrivalTime, "", new { @class = "validationMsg" })
             </td>
         </tr>
-        @*<tr>
-            <td>@Html.LabelFor(Model => Model.TrainClass)</td>
-            <td>
-                @Html.ListBoxFor(Model => Model.TrainClass, (IEnumerable<SelectListItem>)ViewBag.TrainClass ,"Select")
-                @Html.ValidationMessageFor(M => M.TrainClass, "", new { @class = "validationMsg" })
-            </td>
-        </tr>*@
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.TrainKM)</td>
             <td>
@@ -65,13 +60,6 @@
                 @Html.ValidationMessageFor(M => M.TrainKM, "", new { @class = "validationMsg" })
             </td>
         </tr>
-        @*<tr>
-            <td>@Html.LabelFor(Model => Model.TotalSeats)</td>
-            <td>
-                @Html.EditorFor(Model => Model.TotalSeats)
-                @Html.ValidationMessageFor(M => M.TotalSeats, "", new { @class = "validationMsg" })
-            </td>
-        </tr>*@
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.PerKMCost)</td>
             <td>
@@ -80,13 +68,8 @@
             </td>
         </tr>
         <tr>
-            <td><input type="submit" value="Submit" id="btnSubmit" class="btn"></td>
+            <td><input type="submit" value="Save" id="btnSubmit" class="btn"></td>
         </tr>
-        <tr>
-            <td>@Html.ActionLink("Back to List", "DisplayTrainDetails")</td>
-        </tr>
+        <tr>@Html.ActionLink("Back to List", "DisplayTrainDetails")</tr>
     </table>
 }
-
-
-

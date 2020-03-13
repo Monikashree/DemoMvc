@@ -52,7 +52,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
 
 
-        public ActionResult Edit(int trainNo)
+        public ActionResult EditTrainDetails(int trainNo)
         {
             TrainDetails trainDetails = TrainDetailsBL.GetTrainByNo(trainNo);
             TrainDetailsViewModel trainDetailsViewModel = AutoMapper.Mapper.Map<TrainDetails, TrainDetailsViewModel>(trainDetails);
@@ -61,7 +61,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( TrainDetailsViewModel trainDetailsViewModel)
+        public ActionResult EditTrainDetails( TrainDetailsViewModel trainDetailsViewModel)
         {
             if (ModelState.IsValid)
             {

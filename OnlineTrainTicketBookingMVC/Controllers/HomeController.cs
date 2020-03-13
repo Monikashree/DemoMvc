@@ -67,7 +67,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     //    Password = userViewModel.Password,
                     //    Role = "User"
                     //};
-                    userViewModel.Role = "User";
+                    userViewModel.Role = Status.User;
                     User user = AutoMapper.Mapper.Map<UserViewModel, User>(userViewModel);  //Automapping
                     bool status = UserBL.AddUserDetails(user);
                     if (status == false)

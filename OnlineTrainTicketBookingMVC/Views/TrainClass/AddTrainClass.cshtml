@@ -13,7 +13,7 @@
     @Html.HiddenFor(Model => Model.TrainNo)
     <table class="box">
         <tr>
-            <td>@Html.LabelFor(Model => Model.TrainNo)</td>
+            <td>@Html.DisplayNameFor(Model => Model.TrainNo)</td>
             <td>
                 @Html.TextBoxFor(Model => Model.TrainNo, new { @maxlength = 5 })
                 @Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })
