@@ -10,20 +10,15 @@
 {
     TempData.Keep("TrainNo");
 }
- <centre>
-     <h2>TrainCategories</h2>
-     
- </centre>
+
 <table class="box">
-    <centre>
-        <tr>
-            @Html.ActionLink("Add TrainClass", "AddTrainClass", new { code = TempData["TrainNo"] })
-        </tr>
-    </centre>
-    
-    
     <tr>
-    <td>@TempData["TrainNo"].ToString()</td>
+        <td><h2>TrainCategories</h2></td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Add TrainClass", "AddTrainClass", new { code = TempData["TrainNo"] })</td>
+    </tr>
+    <tr>
         <th>
             @Html.DisplayNameFor(Model => Model.ClassId)
         </th>
@@ -34,9 +29,8 @@
             @Html.DisplayNameFor(Model => Model.Cost)
         </th>
     </tr>
-    @foreach(var data in Model)
+    @foreach (var data in Model)
     {
-        
         <tr>
             @Html.HiddenFor(modelItem => data.TrainClassDetailsId)
             <td>
@@ -50,11 +44,11 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditTrainClass", new { id = data.TrainClassDetailsId })
-                @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId  })
+                @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId })
             </td>
         </tr>
     }
+    <tr>
+        <td> @Html.ActionLink("Save", "DisplayTrainDetails", "TrainDetails")</td>
+    </tr>
 </table>
-<p>
-    @Html.ActionLink("Save", "DisplayTrainDetails", "TrainDetails")
-</p>

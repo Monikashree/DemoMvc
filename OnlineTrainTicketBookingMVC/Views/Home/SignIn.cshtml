@@ -5,7 +5,7 @@
    
 }
 
-<h2>SignIn</h2>
+
 
 @*@{Html.RenderPartial("View");}*@
 
@@ -33,17 +33,18 @@
             <div class="input-container">
                 @*<input type="text" required="" />*@
                 @Html.TextBoxFor(Model => Model.UserName )
-                @Html.DisplayNameFor(Model => Model.UserName)
+                @Html.LabelFor(Model => Model.UserName)
                 @Html.ValidationMessageFor(M => M.UserName, "", new { @class = "validationMsg" })
             </div>
             <div class="input-container">
                 @*<input type="password" required="" />*@
                 @Html.PasswordFor(Model => Model.Password)
-                @Html.DisplayNameFor(Model => Model.Password)
+                @Html.LabelFor(Model => Model.Password)
                 @Html.ValidationMessageFor(M => M.Password, "", new { @class = "validationMsg" })
             </div>
-            <input type="submit" value="SignUp" id="btnSubmit" class="btn" onchange="SignUp.cshtml">
+          
             <input type="submit" value="SignIn" id="btnSubmit" class="btn">
+            @Html.ActionLink("Create new Account", "SignUp", "Home")
 </form>
     </div>
 }

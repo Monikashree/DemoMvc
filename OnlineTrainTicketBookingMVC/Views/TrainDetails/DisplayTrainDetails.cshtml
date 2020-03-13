@@ -6,12 +6,11 @@
 
 <h2>DisplayTrainDetails</h2>
 <centre>
-    <h2>Colleges</h2>
-
-    <p>
-        @Html.ActionLink("Add New Train", "Create")
-    </p>
     <table class="box">
+        <tr><td><h2>Colleges</h2></td></tr>
+        <tr>
+            <td>@Html.ActionLink("Add New Train", "Create")</td>
+        </tr>
         <tr>
             <th>@Html.DisplayNameFor(Model => Model.TrainNo)</th>
             <th>@Html.DisplayNameFor(Model => Model.TrainName)</th>
@@ -21,13 +20,10 @@
             <th>@Html.DisplayNameFor(Model => Model.ArrivalTime)</th>
             <th>@Html.DisplayNameFor(Model => Model.TrainKM)</th>
             <th>@Html.DisplayNameFor(Model => Model.PerKMCost)</th>
-            <th></th>
         </tr>
         @foreach (var data in Model)
         {
-
             <tr>
-               
                 <td>
                     @Html.DisplayFor(modelItem => data.TrainNo)
                 </td>
@@ -53,8 +49,8 @@
                     @Html.DisplayFor(modelItem => data.PerKMCost)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditTrainClass", new {trainNo = data.TrainNo })
-                    @Html.ActionLink("Delete", "DeleteTrainClass", new { trainNo = data.TrainNo })
+                    @Html.ActionLink("Edit", "EditTrainDetails", new {trainNo = data.TrainNo })
+                    @Html.ActionLink("Delete", "DeleteTrainDetails", new { trainNo = data.TrainNo })
                 </td>
             </tr>
         }
