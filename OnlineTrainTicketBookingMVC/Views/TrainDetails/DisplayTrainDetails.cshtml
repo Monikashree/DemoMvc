@@ -50,7 +50,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "EditTrainDetails", new {trainNo = data.TrainNo })
-                    @Html.ActionLink("Delete", "DeleteTrainDetails", new { trainNo = data.TrainNo })
+                    @Html.ActionLink("Delete", "DeleteTrainDetails", new { trainNo = data.TrainNo },new { Onclick="return confirm('Do you need to delete this data ?')"})
                 </td>
             </tr>
         }

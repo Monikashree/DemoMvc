@@ -44,7 +44,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditTrainClass", new { id = data.TrainClassDetailsId })
-                @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId })
+                @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId }, new { Onclick = "return confirm('Do you need to delete this data ?')" })
             </td>
         </tr>
     }

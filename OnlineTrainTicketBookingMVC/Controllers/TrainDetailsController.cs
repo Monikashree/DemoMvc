@@ -74,7 +74,8 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
         public ActionResult DeleteTrainDetails(int trainNo)
         {
-            TrainDetails trainDetails = TrainDetailsBL.DeleteTrainDetails(trainNo);
+            TrainDetailsBL.DeleteTrainDetails(trainNo);
+            return RedirectToAction("DisplayTrainDetails", "TrainDetails");
         }
     }
 }
