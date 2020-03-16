@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OnlineTrainTicketBookingMVC.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "DisplayUser";
+}
+
+
+<table border="1" class="box">
+    <tr><td>DisplayUser</td></tr>
+        <tr>
+            <th>UserId</th>
+            <th>Firstname</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Password</th>
+            <th>Role</th>
+        </tr>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => data.UserId)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.MobileNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data.Role)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = data.UserId })
+                    @*@Html.ActionLink("Delete", "DeleteTrainDetails", new { id = data.UserId }, new { Onclick = "return confirm('Do you need to delete this data ?')" })*@
+                </td>
+            </tr>
+        }
+    </table>

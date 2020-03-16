@@ -1,4 +1,5 @@
-﻿using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.BL;
+using OnlineTrainTicketBookingApp.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,7 +12,7 @@ namespace OnlineTrainTicketBookingMVC.Models
         public int TrainClassDetailsId { get; set; }
 
         
-        public int TrainNo { get; set; }
+        public int TrainId { get; set; }
         public TrainDetails TrainDetails { get; set; }
 
 

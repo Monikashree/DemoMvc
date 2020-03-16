@@ -6,7 +6,7 @@
 
 <h2>DisplayTrainDetails</h2>
 <centre>
-    <table class="box">
+    <table class="box" border="1">
         <tr><td><h2>Colleges</h2></td></tr>
         <tr>
             <td>@Html.ActionLink("Add New Train", "Create")</td>
@@ -24,6 +24,7 @@
         @foreach (var data in Model)
         {
             <tr>
+                @Html.HiddenFor(modelItem => data.TrainId)
                 <td>
                     @Html.DisplayFor(modelItem => data.TrainNo)
                 </td>
@@ -49,8 +50,8 @@
                     @Html.DisplayFor(modelItem => data.PerKMCost)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditTrainDetails", new {trainNo = data.TrainNo })
-                    @Html.ActionLink("Delete", "DeleteTrainDetails", new { trainNo = data.TrainNo },new { Onclick="return confirm('Do you need to delete this data ?')"})
+                    @Html.ActionLink("Edit", "EditTrainDetails", new {trainId = data.TrainNo })
+                    @Html.ActionLink("Delete", "DeleteTrainDetails", new { trainId = data.TrainNo },new { Onclick="return confirm('Do you need to delete this data ?')"})
                 </td>
             </tr>
         }

@@ -1,4 +1,4 @@
-﻿using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.BL;
 using OnlineTrainTicketBookingMVC.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -117,6 +117,10 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+        public ActionResult SignOut()
+        {
+            return RedirectToAction("HomePage");
         }
     }
 }

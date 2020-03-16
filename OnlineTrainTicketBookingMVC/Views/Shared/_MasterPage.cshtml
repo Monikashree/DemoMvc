@@ -1,34 +1,35 @@
 ﻿<!DOCTYPE html>
 
 <html>
-<head> 
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Train Ticket App</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />    
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     @*<link rel="stylesheet" href="~/Styles/Style.css" />*@
-   
+
 </head>
 <body class="body">
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="header">              
-                @Html.ActionLink("Bon Voyage", "HomePage", "Home","",  new { @class = "option" })
-                @Html.ActionLink("Home", "HomePage", "Home","", new { @class = "option" })
-                @Html.ActionLink("SignUp", "SignUp", "Home","", new { @class = "option" })
-                @Html.ActionLink("SignIn", "SignIn", "Home","", new { @class = "option" })
-            </div>           
+            <div class="header">
+                @Html.ActionLink("Bon Voyage", "HomePage", "Home", "", new { @class = "option" })
+                @Html.ActionLink("Home", "HomePage", "Home", "", new { @class = "option" })
+                @Html.ActionLink("SignUp", "SignUp", "Home", "", new { @class = "option" })
+                @Html.ActionLink("SignIn", "SignIn", "Home", "", new { @class = "option" })
+                @Html.ActionLink("SignOut", "SignOut", "Home", "", new { @class = "option" })
+            </div>
         </div>
     </div>
-    <br/>
-    <div class="container body-content">  
-        <br/>
+    <br />
+    <div class="container body-content">
+        <br />
         @RenderBody()
         @*<hr />*@
         @*<footer>
-            <p>&copy; @DateTime.Now.Year - Train Ticket Application</p>
-        </footer>*@
+                <p>&copy; @DateTime.Now.Year - Train Ticket Application</p>
+            </footer>*@
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

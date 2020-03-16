@@ -7,7 +7,8 @@ namespace OnlineTrainTicketBookingMVC.Models
     public enum Status
     {
         Admin = 0,
-        User
+        User,
+        Block
     }
     public class UserViewModel
     {
@@ -31,7 +32,7 @@ namespace OnlineTrainTicketBookingMVC.Models
         public short Age { get; set; }
 
         [Required(ErrorMessage = "Sex is required")]
-        [Display(Name = "")]
+        //[Display(Name = "")]
         public string Sex { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
@@ -61,6 +62,10 @@ namespace OnlineTrainTicketBookingMVC.Models
 
        
         public Status Role { get; set; }
+        public UserViewModel()
+        {
+
+        }
 
         //public User(string firstName, string lastName, short age, string sex, string email, long mobileNum, string password, Role role)
         //{

@@ -10,13 +10,13 @@
 @using (Html.BeginForm("AddTrainClass", "TrainClass", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(Model => Model.TrainNo)
+    @Html.HiddenFor(Model => Model.TrainId)
     <table class="box">
         <tr>
-            <td>@Html.DisplayNameFor(Model => Model.TrainNo)</td>
+            <td>@Html.DisplayNameFor(Model => Model.TrainId)</td>
             <td>
-                @Html.TextBoxFor(Model => Model.TrainNo, new { @maxlength = 5 })
-                @Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })
+                @Html.DisplayFor(Model => Model.TrainId, new { @maxlength = 5 })
+                @*@Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })*@
             </td>
         </tr>
         <tr>

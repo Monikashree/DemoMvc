@@ -6,17 +6,17 @@
 
 
 
-@if (TempData["TrainNo"] != null)
+@if (TempData["TrainId"] != null)
 {
-    TempData.Keep("TrainNo");
+    TempData.Keep("TrainId");
 }
 
-<table class="box">
+<table class="box" border="1">
     <tr>
         <td><h2>TrainCategories</h2></td>
     </tr>
     <tr>
-        <td>@Html.ActionLink("Add TrainClass", "AddTrainClass", new { code = TempData["TrainNo"] })</td>
+        <td>@Html.ActionLink("Add TrainClass", "AddTrainClass", new { code = TempData["TrainId"] })</td>
     </tr>
     <tr>
         <th>

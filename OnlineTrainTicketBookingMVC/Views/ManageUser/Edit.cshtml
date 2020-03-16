@@ -1,0 +1,38 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "ManageUser", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <table class="box">
+        <tr>
+            @Html.HiddenFor(modelItem => Model.UserId)
+            @Html.HiddenFor(modelItem => Model.FirstName)
+            @Html.HiddenFor(modelItem => Model.LastName)
+            @Html.HiddenFor(modelItem => Model.Age)
+            @Html.HiddenFor(modelItem => Model.Sex)
+            @Html.HiddenFor(modelItem => Model.Email)
+            @Html.HiddenFor(modelItem => Model.MobileNumber)
+            @Html.HiddenFor(modelItem => Model.Password)
+            @Html.HiddenFor(modelItem => Model.ConfirmPassword)
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(Model=>Model.Role)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.Role)
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save" id="btnSubmit" class="btn"></td>
+        </tr>
+        <tr>@Html.ActionLink("Back to List", "DisplayUser")</tr>
+    </table>
+}
+

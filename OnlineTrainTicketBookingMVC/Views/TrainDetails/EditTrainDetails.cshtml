@@ -12,6 +12,7 @@
     <table class="box">
         
         <tr>
+            @Html.HiddenFor(modelItem => Model.TrainId)
             <td>@Html.DisplayNameFor(Model => Model.TrainNo)</td>
             <td>
                 @Html.EditorFor(Model => Model.TrainNo)

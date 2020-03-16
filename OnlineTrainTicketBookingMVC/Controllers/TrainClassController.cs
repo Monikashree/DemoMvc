@@ -1,4 +1,5 @@
-﻿using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.BL;
+using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.Models;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }   
         public ActionResult DisplayTrainCategories()
         {
-            List<TrainClassDetails> trainClassList = TrainClassBL.GetTrainClass(Convert.ToInt32(TempData["TrainNo"]));
+            List<TrainClassDetails> trainClassList = TrainClassBL.GetTrainClass(Convert.ToInt32(TempData["TrainId"]));
             List<TrainClassDetailsViewModel> trainClassDetailsViewModelList = new List<TrainClassDetailsViewModel>();
             foreach (TrainClassDetails classes in trainClassList)
             {
@@ -27,7 +28,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         public ActionResult AddTrainClass()
         {
             TrainClassDetailsViewModel trainClassDetailsViewModel = new TrainClassDetailsViewModel();
-            trainClassDetailsViewModel.TrainNo= Convert.ToInt32(TempData["TrainNo"]);
+            trainClassDetailsViewModel.TrainId= Convert.ToInt32(TempData["TrainId"]);
             List<TrainClass> trainClassList = TrainClassBL.GetTrainClassList();
             List<SelectListItem> classList = new List<SelectListItem>();
             foreach (TrainClass trainClass in trainClassList)
@@ -53,7 +54,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             {
                 TrainClassDetails trainClassDetails = AutoMapper.Mapper.Map<TrainClassDetailsViewModel, TrainClassDetails>(trainClassDetailsViewModel);
                 TrainClassBL.AddTrainClass(trainClassDetails);
-                TempData["TrainNo"] = trainClassDetails.TrainNo;
+                TempData["TrainId"] = trainClassDetails.TrainId;
                 return RedirectToAction("DisplayTrainCategories");
             }
             return View();
@@ -73,7 +74,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             {
                 TrainClassDetails trainClassDetails = AutoMapper.Mapper.Map<TrainClassDetailsViewModel, TrainClassDetails>(trainClassdetailsViewModel);
                 TrainClassBL.EditTrainClass(trainClassDetails);
-                TempData["TrainNo"] = trainClassDetails.TrainNo;
+                TempData["TrainId"] = trainClassDetails.TrainId;
                 return RedirectToAction("DisplayTrainCategories");
             }
             return View();
@@ -82,7 +83,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         {
             TrainClassDetails trainClassDetails = TrainClassBL.GetClass(id);
             TrainClassBL.DeleteTrainClass(trainClassDetails);
-            return RedirectToAction("DisplayTrainCategories", trainClassDetails.TrainNo);
+            return RedirectToAction("DisplayTrainCategories", trainClassDetails.TrainId);
         }
 
     }

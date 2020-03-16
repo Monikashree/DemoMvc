@@ -163,6 +163,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ManageUserController.cs" />
     <Compile Include="Controllers\TrainClassController.cs" />
     <Compile Include="Controllers\TrainDetailsController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
@@ -204,6 +205,9 @@
     <Content Include="Views\TrainClass\EditTrainClass.cshtml" />
     <Content Include="Views\TrainDetails\DisplayTrainDetails.cshtml" />
     <Content Include="Views\TrainDetails\EditTrainDetails.cshtml" />
+    <Content Include="Views\TrainDetails\Index.cshtml" />
+    <Content Include="Views\ManageUser\DisplayUser.cshtml" />
+    <Content Include="Views\ManageUser\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

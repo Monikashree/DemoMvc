@@ -38,6 +38,10 @@ textarea {
     color: blue; 
     text-shadow: 0 0 3px #8deff9;
 }
+.option{
+    color: blue; 
+    text-shadow: 0 0 3px #8deff9;  
+}
 
 .text-center{
 	color:#fff;	

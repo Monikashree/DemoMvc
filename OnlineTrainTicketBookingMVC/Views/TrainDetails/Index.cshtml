@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<centre class="box">
+    <h2>Admin Options</h2>
+    <p>For Adding Train Details Click Add Train Details</p>
+    <div>
+        @Html.ActionLink("Add Train Details", "AddTrainDetails", "TrainDetails")
+    </div>
+    <p>For Viewing  & Editing Train Details Click View Train Details</p>
+    <div>
+        @Html.ActionLink("Manage Train Details", "DisplayTrainDetails", "TrainDetails")
+    </div>
+    <p>For Managing User Click Manage User</p>
+    <div>
+        @Html.ActionLink("Manage User", "DisplayUser", "ManageUser")
+    </div>
+     
+</centre>
+

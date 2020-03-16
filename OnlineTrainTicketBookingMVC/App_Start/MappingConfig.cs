@@ -1,4 +1,5 @@
-﻿using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.BL;
+using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.Models;
 
 namespace OnlineTrainTicketBookingMVC.App_Start
@@ -14,7 +15,7 @@ namespace OnlineTrainTicketBookingMVC.App_Start
                 config.CreateMap<TrainClassDetails, TrainClassDetailsViewModel>();
                 config.CreateMap<TrainClassDetailsViewModel, TrainClassDetails>();
                 config.CreateMap<TrainDetails, TrainDetailsViewModel>();
-
+                config.CreateMap<User, UserViewModel>();
             });
 
         }

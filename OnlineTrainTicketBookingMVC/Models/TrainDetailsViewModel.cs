@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
@@ -8,19 +9,29 @@ namespace OnlineTrainTicketBookingMVC.Models
     public class TrainDetailsViewModel
     {
         [Key]
-        [Required(ErrorMessage = "Train Number is required")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TrainId { get; set; }
+
+        [Required(ErrorMessage = "Train Number is required")]       
+       // [Index(IsUnique = true)]
         [Display(Name = "Train No")]
         public int TrainNo { get; set; }
 
         [Required(ErrorMessage = "Train Name is required")]
+        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
+        [Range(10000, 99999)]
         [Display(Name = "Train Name")]
         public string TrainName { get; set; }
 
         [Required(ErrorMessage = "Source station is required")]
+        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
+        [Range(10000, 99999)]
         [Display(Name = "Source Station")]
         public string SourceStation { get; set; }
 
         [Required(ErrorMessage = "Destination station is required")]
+        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
+        [Range(10000, 99999)]
         [Display(Name = "Destination Station")]
         public string DestinationStation { get; set; }
 

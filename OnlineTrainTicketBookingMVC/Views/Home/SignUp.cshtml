@@ -63,7 +63,7 @@
         <tr >
             <td>@Html.DisplayNameFor(Model => Model.ConfirmPassword)</td>
             <td>
-                @Html.TextBoxFor(Model => Model.ConfirmPassword, new { @maxlength = 15})
+                @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = 15})
                 @Html.ValidationMessageFor(M => M.ConfirmPassword, "", new { @class = "validationMsg" })
             </td>
         </tr>

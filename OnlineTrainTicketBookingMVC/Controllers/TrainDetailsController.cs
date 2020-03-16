@@ -1,4 +1,5 @@
-﻿using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.BL;
+using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -10,6 +11,11 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         // GET: Admin
        // private TrainTicketBookingDbContext db = new TrainTicketBookingDbContext();
         //TrainDetailsRepository trainDetailsRepository = new TrainDetailsRepository();
+
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult DisplayTrainDetails()
         {
             IEnumerable<TrainDetails> trainDetailsList = TrainDetailsBL.GetTrainDetails();
@@ -42,7 +48,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 //    trainDetails.TrainClassDetails.Add(trainClassDetails);
                 //}
                 TrainDetailsBL.AddTrainDetails(trainDetails);
-                TempData["TrainNo"] = trainDetails.TrainNo;
+                TempData["TrainId"] = trainDetails.TrainId;
                 return RedirectToAction("AddTrainClass", "TrainClass");
                 //TempData["Message"] = "Added Successfully!!!";
                 //return RedirectToAction("Index");
@@ -52,9 +58,9 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
 
 
-        public ActionResult EditTrainDetails(int trainNo)
+        public ActionResult EditTrainDetails(int trainId)
         {
-            TrainDetails trainDetails = TrainDetailsBL.GetTrainByNo(trainNo);
+            TrainDetails trainDetails = TrainDetailsBL.GetTrainByNo(trainId);
             TrainDetailsViewModel trainDetailsViewModel = AutoMapper.Mapper.Map<TrainDetails, TrainDetailsViewModel>(trainDetails);
             return View(trainDetailsViewModel);
         }

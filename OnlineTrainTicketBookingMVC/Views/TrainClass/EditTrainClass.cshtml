@@ -8,7 +8,7 @@
 @using (Html.BeginForm("EditTrainClass", "TrainClass", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(Model => Model.TrainNo)
+    @Html.HiddenFor(Model => Model.TrainId)
     <table class="box">
         <tr>
             @Html.HiddenFor(Model => Model.TrainClassDetailsId)
