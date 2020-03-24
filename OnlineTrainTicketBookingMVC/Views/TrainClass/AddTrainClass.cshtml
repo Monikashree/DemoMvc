@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "AddTrainClass";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
 }
 
 <h2>AddTrainClass</h2>
@@ -15,7 +16,7 @@
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.TrainId)</td>
             <td>
-                @Html.DisplayFor(Model => Model.TrainId, new { @maxlength = 5 })
+                @Html.DisplayFor(Model => Model.TrainId)
                 @*@Html.ValidationMessageFor(M => M.TrainNo, "", new { @class = "validationMsg" })*@
             </td>
         </tr>

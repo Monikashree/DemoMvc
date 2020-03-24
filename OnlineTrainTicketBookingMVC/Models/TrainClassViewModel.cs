@@ -7,13 +7,13 @@ namespace OnlineTrainTicketBookingMVC.Models
     public class TrainClassViewModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]       // An entity with regex for Class details
         public int ClassId { get; set; }
 
         [Required]
         [MaxLength(25)]
         [Display(Name = "Class Name")]
-        [RegularExpression("^[A-Z][a-z]*[0-9]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z) (0-9)")]
+        [RegularExpression("^[A-Z][a-z]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
         public string ClassName { get; set; }
 
         public IList<TrainClassDetailsViewModel> TrainClassDetails { get; set; }

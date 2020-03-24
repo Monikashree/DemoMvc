@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OnlineTrainTicketBookingMVC.Models.TrainClassViewModel>
+
+@{
+    ViewBag.Title = "DisplayClass";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+@if (TempData["Message"] == null)
+{
+    TempData["Message"] = "";
+}
+<table class="box" border="1">
+    <tr>
+        <td><h2>DisplayClass</h2></td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Add Class", "AddClass")</td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.ClassName)
+        </th>
+    </tr>
+    @foreach(var data in Model)
+    {
+        <tr>
+            @Html.HiddenFor(modelItem => data.ClassId)
+            <td>
+                @Html.DisplayFor(modelItem => data.ClassName)
+            </td>
+         </tr>
+         <tr class="validationMsg">@TempData["Message"].ToString()</tr>
+    }
+</table>

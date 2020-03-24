@@ -1,14 +1,23 @@
 ﻿using OnlineTrainTicketBookingApp.BL;
+using OnlineTrainTicketBookingMVC.App_Start;
 using OnlineTrainTicketBookingMVC.Models;
-using System.Collections.Generic;
+using System;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace OnlineTrainTicketBookingMVC.Controllers
 {
+   // [CustomException]
     public class HomeController : Controller
     {
         // GET: Home
-        UserRepository userRepository = new UserRepository();
+        
+        IUserBL userBL;
+        public HomeController()     //A constructor to create a reference to IUserBL
+        {
+           userBL = new UserBL();
+        }
         public ActionResult HomePage()
         {
             return View();
@@ -40,7 +49,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
 
         [HttpGet]
         [ActionName("SignUp")]
-        [OutputCache(Duration = 60)]
+       
         public ActionResult SignUp_Get()
         {
             return View();
@@ -48,8 +57,9 @@ namespace OnlineTrainTicketBookingMVC.Controllers
 
         //[AllowAnonymous]
         [HttpPost]
-        [ActionName("SignUp")]                                          /*Code for binding*///public ActionResult SignUp_Post([Bind(/*Include*/Exclude  = "FirstName, Age, Sex, Email, MobileNum, Password")]User user)
-        public ActionResult SignUp_Post(UserViewModel userViewModel)
+        [ActionName("SignUp")]
+        [OutputCache(Duration = 60)]                                        //Output cache to help user if the signup fails again and again
+        public ActionResult SignUp_Post(UserViewModel userViewModel)        // Action method for signup
         {
             //TryUpdateModel(user);
             //if (userViewModel.Age > 17 && userViewModel.Age < 100)
@@ -58,7 +68,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 {
                     //User user = new User
                     //{
-                    //    FirstName = userViewModel.FirstName,
+                    //    FirstName = userViewModel.FirstName,              //Sign Up Controll
                     //    LastName = userViewModel.LastName,
                     //    Age = userViewModel.Age,
                     //    Sex = userViewModel.Sex,
@@ -68,8 +78,9 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     //    Role = "User"
                     //};
                     userViewModel.Role = Status.User;
+                    userViewModel.IsActive = true;
                     User user = AutoMapper.Mapper.Map<UserViewModel, User>(userViewModel);  //Automapping
-                    bool status = UserBL.AddUserDetails(user);
+                    bool status = userBL.AddUserDetails(user);
                     if (status == false)
                         TempData["Message"] = "Please Try Again";
                     TempData["Message"] = "Registration Successfull";
@@ -105,13 +116,24 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 //            return RedirectToAction("Index", "TrainDetails");
                 //        return RedirectToAction("Index", "User");
                 //    }
-                //}
-                User user = UserBL.SignIn(signInViewModel.UserName, signInViewModel.Password);
+                //}                                                                 //Sign In Controll
+
+
+                User user = userBL.SignIn(signInViewModel.UserName, signInViewModel.Password);
                 if (user != null)
                 {
-                    if (user.Role.Equals("Admin"))
-                        return RedirectToAction("Index", "TrainDetails");
-                    return RedirectToAction("Index", "User");
+                    if (user.IsActive == true)
+                    {
+                        FormsAuthentication.SetAuthCookie(user.FirstName, false);
+                        var authTicket = new FormsAuthenticationTicket(1, user.FirstName, DateTime.Now, DateTime.Now.AddMinutes(20), false, user.Role);
+                        string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                        var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                        HttpContext.Response.Cookies.Add(authCookie);
+                        if (user.Role.Equals("Admin"))
+                            return RedirectToAction("Index", "TrainDetails");
+                        //TempData["Message"] = user.UserID;
+                        return RedirectToAction("ViewProfile", "User", new { id = user.UserID});
+                    }
                 }
                 TempData["Message"] = "Incorrect Username or Password";
                 return RedirectToAction("Index");
@@ -120,6 +142,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
         public ActionResult SignOut()
         {
+            FormsAuthentication.SignOut();             //Sign Out Controll
             return RedirectToAction("HomePage");
         }
     }

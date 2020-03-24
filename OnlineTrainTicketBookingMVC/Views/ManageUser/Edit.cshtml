@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Edit";
+
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
 }
 
 <h2>Edit</h2>
@@ -20,13 +22,14 @@
             @Html.HiddenFor(modelItem => Model.MobileNumber)
             @Html.HiddenFor(modelItem => Model.Password)
             @Html.HiddenFor(modelItem => Model.ConfirmPassword)
+            @Html.HiddenFor(modelItem => Model.Role)
         </tr>
         <tr>
             <td>
-                @Html.DisplayNameFor(Model=>Model.Role)
+                @Html.DisplayNameFor(Model=>Model.IsActive)
             </td>
             <td>
-                @Html.EditorFor(Model => Model.Role)
+                @Html.EditorFor(Model => Model.IsActive)
             </td>
         </tr>
         <tr>

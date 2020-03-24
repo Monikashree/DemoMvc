@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingMVC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Entity", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBookingApp.Entity.csproj", "{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.PL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.PL\OnlineTrainTicketBookingApp.PL.csproj", "{8697ACB5-C53B-4AC6-9EB1-D09C01355968}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.DAL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.DAL\OnlineTrainTicketBookingApp.DAL.csproj", "{ECE1698E-7607-4F18-8362-10E8A36BE86B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Common", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\OnlineTrainTicketBookingApp.Common.csproj", "{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}"
@@ -29,10 +27,6 @@ Global
 		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8697ACB5-C53B-4AC6-9EB1-D09C01355968}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Release|Any CPU.ActiveCfg = Release|Any CPU

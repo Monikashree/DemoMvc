@@ -6,32 +6,29 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineTrainTicketBookingMVC.Models
 {
     
-    public class TrainDetailsViewModel
+    public class TrainDetailsViewModel          //Entity attributes with regex and Display name
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TrainId { get; set; }
 
         [Required(ErrorMessage = "Train Number is required")]       
-       // [Index(IsUnique = true)]
+        [Range(10000, 99999 , ErrorMessage = "Please enter valid train number")]
         [Display(Name = "Train No")]
         public int TrainNo { get; set; }
 
         [Required(ErrorMessage = "Train Name is required")]
-        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
-        [Range(10000, 99999)]
+        //[RegularExpression("^[A-Z][a-z]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]       
         [Display(Name = "Train Name")]
         public string TrainName { get; set; }
 
         [Required(ErrorMessage = "Source station is required")]
-        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
-        [Range(10000, 99999)]
+        [RegularExpression("^[A-Z][a-z]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]        
         [Display(Name = "Source Station")]
         public string SourceStation { get; set; }
 
         [Required(ErrorMessage = "Destination station is required")]
-        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
-        [Range(10000, 99999)]
+        [RegularExpression("^[A-Z][a-z ]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]       
         [Display(Name = "Destination Station")]
         public string DestinationStation { get; set; }
 
@@ -58,6 +55,6 @@ namespace OnlineTrainTicketBookingMVC.Models
 
         //public int[] TrainClass { get; set; }
 
-        public IList<TrainClassDetailsViewModel> TrainClassDetails { get; set; }
+        public IList<TrainClassDetailsViewModel> TrainClassDetails { get; set; }    //One to may relationship
     }
 }

@@ -1,9 +1,6 @@
 ﻿using OnlineTrainTicketBookingApp.BL;
 using OnlineTrainTicketBookingMVC.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace OnlineTrainTicketBookingMVC.Controllers
@@ -11,12 +8,17 @@ namespace OnlineTrainTicketBookingMVC.Controllers
     public class ManageUserController : Controller
     {
         // GET: ManageUser
+        IUserBL userBL;
+        public ManageUserController()
+        {
+            userBL = new UserBL();
+        }
         public ActionResult DisplayUser()
         {
-            IEnumerable<User> userDetailsList = UserBL.GetUserDetails();
+            IEnumerable<User> userDetailsList = userBL.GetUserDetails();
             List<UserViewModel> userViewModelList = new List<UserViewModel>();
             //IEnumerable<TrainDetails> trainList = TrainDetailsBL.GetTrainDetails();
-            foreach (User user in userDetailsList)
+            foreach (User user in userDetailsList)                                  //Displaying User Details
             {
                 UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
                 userViewModelList.Add(userViewModel);
@@ -26,7 +28,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
         public ActionResult Edit(int id)
         {
-            User user = UserBL.GetUserById(id);
+            User user = userBL.GetUserById(id);                                     //Editing User Details
             UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
             return View(userViewModel);
         }
@@ -35,14 +37,14 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(UserViewModel userViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                User user = AutoMapper.Mapper.Map<UserViewModel, User>(userViewModel);
-                UserBL.BlockUser(user);
+            //if (ModelState.IsValid)
+            {                                                                        
+                User user = AutoMapper.Mapper.Map<UserViewModel, User>(userViewModel);  //Automapper to map details from the view model to entity
+                userBL.BlockUser(user);
                 
                 return RedirectToAction("DisplayUser", "Manageuser");
             }
-            return View(userViewModel);
+            //return View(userViewModel);
         }
     }
 }

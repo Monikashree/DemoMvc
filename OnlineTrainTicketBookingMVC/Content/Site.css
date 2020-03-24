@@ -38,9 +38,10 @@ textarea {
     color: blue; 
     text-shadow: 0 0 3px #8deff9;
 }
-.option{
+.option1{
     color: blue; 
     text-shadow: 0 0 3px #8deff9;  
+    margin-left: 55%;
 }
 
 .text-center{

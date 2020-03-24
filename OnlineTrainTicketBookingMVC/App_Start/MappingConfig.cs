@@ -1,5 +1,4 @@
-﻿using OnlineTrainTicketBookingApp.BL;
-using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.Models;
 
 namespace OnlineTrainTicketBookingMVC.App_Start

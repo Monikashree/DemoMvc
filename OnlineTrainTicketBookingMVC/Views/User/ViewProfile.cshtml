@@ -1,0 +1,42 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.UserViewModel
+
+@{
+    ViewBag.Title = "ViewProfile";
+}
+
+
+    <table class="box">
+        <tr>
+            @Html.HiddenFor(modelItem => Model.UserId)
+            @Html.HiddenFor(modelItem => Model.IsActive)
+            @Html.HiddenFor(modelItem => Model.Password)
+        </tr>
+        <tr><td><h2>Profile</h2></td></tr>
+        <tr>
+            <td>FirstName</td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td>LastName</td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>@Model.Age</td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td>@Model.Sex</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>Mobile Number</td>
+            <td>@Model.MobileNumber</td>
+        </tr>
+        <tr><td>@Html.ActionLink("Edit Profile", "EditProfile", new { id = Model.UserId})</td></tr>
+        <tr><td>@Html.ActionLink("Change Password", "ChangePassword", new { id = Model.UserId })</td></tr>
+    </table>
+

@@ -17,8 +17,29 @@
                 @Html.ActionLink("Bon Voyage", "HomePage", "Home", "", new { @class = "option" })
                 @Html.ActionLink("Home", "HomePage", "Home", "", new { @class = "option" })
                 @Html.ActionLink("SignUp", "SignUp", "Home", "", new { @class = "option" })
-                @Html.ActionLink("SignIn", "SignIn", "Home", "", new { @class = "option" })
-                @Html.ActionLink("SignOut", "SignOut", "Home", "", new { @class = "option" })
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Hello" +@User.Identity.Name.ToString(), "ViewProfile", "User", "", new { @class = "option1" })
+                    @Html.ActionLink("SignOut", "SignOut", "Home", "", new { @class = "option" })
+                   
+                }
+                else
+                {
+                    @Html.ActionLink("SignIn", "SignIn", "Home", "", new { @class = "option" })
+                }
+                
+
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Manage User", "DisplayUser", "ManageUser", "", new { @class = "option1" })
+                    @Html.ActionLink("Manage Train", "DisplayTrainDetails", "TrainDetails", "", new { @class = "option" })
+                    @Html.ActionLink("Add Train", "Create", "TrainDetails", "", new { @class = "option" })
+                    @Html.ActionLink("Add Class", "AddClass", "TrainClass", "", new { @class = "option" })
+                }
+                @if(HttpContext.Current.User.IsInRole("User"))
+                {
+
+                }
             </div>
         </div>
     </div>

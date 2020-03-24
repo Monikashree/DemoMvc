@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
+    //Layout = "~/Views/Shared/_AdminPage.cshtml";
 }
 
 @using (Html.BeginForm("Create", "TrainDetails", FormMethod.Post))
@@ -84,6 +85,7 @@
         </tr>
         <tr>
             <td>@Html.ActionLink("Back to List", "DisplayTrainDetails")</td>
+            @*<td><asp:TextBoxID="TextBox1" runat="server" ></asp:TextBox></td>*@
         </tr>
     </table>
 }

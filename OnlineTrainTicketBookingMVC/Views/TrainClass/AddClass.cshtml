@@ -1,0 +1,35 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.TrainClassViewModel
+
+@{
+    ViewBag.Title = "AddClass";
+    Layout = "~/Views/Shared/_AdminPage.cshtml";
+}
+@if (TempData["Message"] == null)
+{
+    TempData["Message"] = "";
+}
+
+
+@using (Html.BeginForm("AddClass", "TrainClass", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.ClassId)
+    <table class="box" border="0">
+        
+        <tr><td><h2>AddTrainClassDetails</h2></td></tr>
+        
+        <tr>
+            <td>@Html.DisplayNameFor(Model => Model.ClassName)</td>
+            <td>
+                @Html.TextBoxFor(Model => Model.ClassName)
+                @Html.ValidationMessageFor(M => M.ClassName, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr><td><h2>@TempData["Message"].ToString()</h2></td></tr>
+        <tr><td><input type="submit" value="Add" id="btnSubmit" class="btn"></td></tr>
+        <tr>
+            <td>@Html.ActionLink("Back to List", "DisplayClass")</td>
+        </tr>
+        </table>
+}
+

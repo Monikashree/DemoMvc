@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomError.cs" />
+    <Compile Include="App_Start\CustomException.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -208,6 +209,11 @@
     <Content Include="Views\TrainDetails\Index.cshtml" />
     <Content Include="Views\ManageUser\DisplayUser.cshtml" />
     <Content Include="Views\ManageUser\Edit.cshtml" />
+    <Content Include="Views\Shared\_AdminPage.cshtml" />
+    <Content Include="Views\TrainClass\AddClass.cshtml" />
+    <Content Include="Views\TrainClass\DisplayClass.cshtml" />
+    <Content Include="Views\User\ViewProfile.cshtml" />
+    <Content Include="Views\User\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -234,10 +240,6 @@
     <ProjectReference Include="..\..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBookingApp.Entity.csproj">
       <Project>{f2d85c4d-216b-44c5-a34c-e8fadc8ce1ca}</Project>
       <Name>OnlineTrainTicketBookingApp.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.PL\OnlineTrainTicketBookingApp.PL.csproj">
-      <Project>{8697acb5-c53b-4ac6-9eb1-d09c01355968}</Project>
-      <Name>OnlineTrainTicketBookingApp.PL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

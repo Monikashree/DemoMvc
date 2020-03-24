@@ -10,16 +10,56 @@ namespace OnlineTrainTicketBookingMVC.Controllers
     public class TrainClassController : Controller
     {
         // GET: TrainClass
+        ITrainClassBL trainClassBL;
+        public TrainClassController()
+        {
+            trainClassBL = new TrainClassBL();
+        }
         public ActionResult Index()
         {
             return View();
         }   
+        public ActionResult AddClass()
+        {
+            return View();
+        }
+        [HttpPost]
+        [HandleError]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddClass([Bind(Exclude = "TrainClassDetails,ClassId")]TrainClassViewModel trainClassViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                TrainClass trainClass = AutoMapper.Mapper.Map<TrainClassViewModel, TrainClass>(trainClassViewModel);
+                bool result = trainClassBL.AddClass(trainClass);
+                if(!result)
+                {
+                    TempData["Message"] = "Please Try Again";
+                    return View();
+                }
+                TempData["Message"] = "Added Successfully!!!";
+                return RedirectToAction("DisplayClass");
+            }
+            return View();
+        }
+        public ActionResult DisplayClass()
+        {
+            IEnumerable<TrainClass> trainClassList = trainClassBL.GetTrainClassList();
+            List<TrainClassViewModel> trainClassViewModelList = new List<TrainClassViewModel>();
+            //IEnumerable<TrainDetails> trainList = TrainDetailsBL.GetTrainDetails();       //Displaying Train Details
+            foreach (TrainClass classes in trainClassList)
+            {
+                TrainClassViewModel trainClassViewModel = AutoMapper.Mapper.Map<TrainClass, TrainClassViewModel>(classes);
+                trainClassViewModelList.Add(trainClassViewModel);
+            }
+            return View(trainClassViewModelList);          
+        }
         public ActionResult DisplayTrainCategories()
         {
-            List<TrainClassDetails> trainClassList = TrainClassBL.GetTrainClass(Convert.ToInt32(TempData["TrainId"]));
+            List<TrainClassDetails> trainClassList = trainClassBL.GetTrainClass(Convert.ToInt32(TempData["TrainId"]));
             List<TrainClassDetailsViewModel> trainClassDetailsViewModelList = new List<TrainClassDetailsViewModel>();
             foreach (TrainClassDetails classes in trainClassList)
-            {
+            {                                                                           //Display Train Class Details
                 TrainClassDetailsViewModel trainClassDetailsViewModel = AutoMapper.Mapper.Map<TrainClassDetails, TrainClassDetailsViewModel>(classes);
                 trainClassDetailsViewModelList.Add(trainClassDetailsViewModel);
             }
@@ -29,10 +69,10 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         {
             TrainClassDetailsViewModel trainClassDetailsViewModel = new TrainClassDetailsViewModel();
             trainClassDetailsViewModel.TrainId= Convert.ToInt32(TempData["TrainId"]);
-            List<TrainClass> trainClassList = TrainClassBL.GetTrainClassList();
+            List<TrainClass> trainClassList = trainClassBL.GetTrainClassList();
             List<SelectListItem> classList = new List<SelectListItem>();
             foreach (TrainClass trainClass in trainClassList)
-            {
+            {                                                                           //Adding Train Details
                 classList.Add(new SelectListItem { Text = @trainClass.ClassName, Value = @trainClass.ClassId.ToString() });
             }
             ViewBag.classes = classList;
@@ -40,12 +80,13 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HandleError]
+        [ValidateAntiForgeryToken]                                          //Antiforgery key token to prevent CSRF attack
         public ActionResult AddTrainClass(TrainClassDetailsViewModel trainClassDetailsViewModel)
         {
-            List<TrainClass> trainClassList = TrainClassBL.GetTrainClassList();
+            List<TrainClass> trainClassList = trainClassBL.GetTrainClassList();
             List<SelectListItem> classList = new List<SelectListItem>();
-            foreach (TrainClass trainClass in trainClassList)
+            foreach (TrainClass trainClass in trainClassList)       //Using view bag to get train class
             {
                 classList.Add(new SelectListItem { Text = @trainClass.ClassName, Value = @trainClass.ClassId.ToString() });
             }
@@ -53,15 +94,15 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             if (ModelState.IsValid)
             {
                 TrainClassDetails trainClassDetails = AutoMapper.Mapper.Map<TrainClassDetailsViewModel, TrainClassDetails>(trainClassDetailsViewModel);
-                TrainClassBL.AddTrainClass(trainClassDetails);
+                trainClassBL.AddTrainClass(trainClassDetails);
                 TempData["TrainId"] = trainClassDetails.TrainId;
                 return RedirectToAction("DisplayTrainCategories");
             }
             return View();
         }
         public ActionResult EditTrainClass(int id)
-        {
-            TrainClassDetails trainClassDetails = TrainClassBL.GetClass(id);
+        {                                                                                       
+            TrainClassDetails trainClassDetails = trainClassBL.GetClass(id);        //Editing Train Class Detail
             TrainClassDetailsViewModel trainClassDetailsViewModel = AutoMapper.Mapper.Map<TrainClassDetails, TrainClassDetailsViewModel>(trainClassDetails);
             return View(trainClassDetailsViewModel);
         }
@@ -73,18 +114,18 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             if (ModelState.IsValid)
             {
                 TrainClassDetails trainClassDetails = AutoMapper.Mapper.Map<TrainClassDetailsViewModel, TrainClassDetails>(trainClassdetailsViewModel);
-                TrainClassBL.EditTrainClass(trainClassDetails);
+                trainClassBL.EditTrainClass(trainClassDetails);
                 TempData["TrainId"] = trainClassDetails.TrainId;
                 return RedirectToAction("DisplayTrainCategories");
             }
             return View();
         }
         public ActionResult DeleteTrainClass(int id)
-        {
-            TrainClassDetails trainClassDetails = TrainClassBL.GetClass(id);
-            TrainClassBL.DeleteTrainClass(trainClassDetails);
+        {                                                                           //Delete Train Detail
+            TrainClassDetails trainClassDetails = trainClassBL.GetClass(id);
+            trainClassBL.DeleteTrainClass(trainClassDetails);
             return RedirectToAction("DisplayTrainCategories", trainClassDetails.TrainId);
         }
 
     }
-}
+}   

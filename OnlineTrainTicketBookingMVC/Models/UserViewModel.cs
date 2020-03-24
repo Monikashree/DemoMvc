@@ -10,7 +10,7 @@ namespace OnlineTrainTicketBookingMVC.Models
         User,
         Block
     }
-    public class UserViewModel
+    public class UserViewModel                      //Properties of User with regex and display name
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -39,8 +39,8 @@ namespace OnlineTrainTicketBookingMVC.Models
        
         //[Index(IsUnique = true)]
         //[DataType(DataType.EmailAddress)]
-        [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-                            ErrorMessage = "Please enter a valid email address")]       
+        //[RegularExpression("^[a-zA-Z0-9_+&*-] + (?:\\.[a-zA-Z0-9_+&*-]+ )*@(?:[a-zA-Z0-9-]+\\.) + [a-zA-Z]{2, 7}",
+                            //ErrorMessage = "Please enter a valid email address")]       
         public string Email { get; set; }
 
         [Required(ErrorMessage = "MobileNumber is required")]
@@ -62,6 +62,8 @@ namespace OnlineTrainTicketBookingMVC.Models
 
        
         public Status Role { get; set; }
+
+        public bool IsActive { get; set; }
         public UserViewModel()
         {
 

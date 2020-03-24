@@ -8,7 +8,7 @@ namespace OnlineTrainTicketBookingMVC.Models
     public class TrainClassDetailsViewModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]       //Intermediate view model to maintain the class and cost
         public int TrainClassDetailsId { get; set; }
 
         
