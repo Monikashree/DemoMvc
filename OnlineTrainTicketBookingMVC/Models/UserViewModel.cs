@@ -54,7 +54,7 @@ namespace OnlineTrainTicketBookingMVC.Models
         [RegularExpression("^[A-Z][a-z]+@[0-9]+", ErrorMessage = "Please set Password as A-Za-z@0-9")]
         public string Password { get; set; }
 
-        [Required]
+        //[Required]
         [NotMapped]
         [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "Password doesn't match.")]

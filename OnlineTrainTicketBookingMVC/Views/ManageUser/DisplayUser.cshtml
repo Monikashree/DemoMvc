@@ -2,12 +2,17 @@
 
 @{
     ViewBag.Title = "DisplayUser";
-    Layout = "~/Views/Shared/_AdminPage.cshtml";
+    
 }
 
 
 <table border="1" class="box">
+    
     <tr><td>DisplayUser</td></tr>
+    <tr>
+        <td>@Html.TextBox("txtSearch", null, new { @placeholder = "Enter User Name..." })</td>
+        <td><button class="btn1">Search</button></td>
+    </tr>
         <tr>
             <th>UserId</th>
             <th>Firstname</th>
@@ -58,3 +63,21 @@
             </tr>
         }
     </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("button").click(function search() {
+        $("#txtSearch").keypress();   
+        var txtEnter = $('#txtSearch').val();
+        $("table tr").each(function (results) {
+            if (results != 0) {
+                var id = $(this).find("td:nth-child(2)").text();
+                if (id.indexOf(txtEnter) != 0 && id.toLowerCase().indexOf(txtEnter.toLowerCase()) < 0) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            }
+        });
+    });
+</script>

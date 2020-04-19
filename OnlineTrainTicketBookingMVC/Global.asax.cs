@@ -14,7 +14,7 @@ namespace OnlineTrainTicketBookingMVC
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             MappingConfig.RegisterMaps();
-            FilterConfig.RegisterActionFilters(GlobalFilters.Filters);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)

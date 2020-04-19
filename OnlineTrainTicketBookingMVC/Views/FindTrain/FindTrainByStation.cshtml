@@ -1,0 +1,53 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.SearchTrainViewModel
+
+@{
+    ViewBag.Title = "FindTrainByStation";
+}
+
+
+@using (Html.BeginForm("DisplayTrainDetails", "FindTrain"))
+{
+    <div class="box">
+        <form>
+            <span class="text-center">Plan Your Journey</span>
+            @*<div class="input-container">
+                @*<input type="text" required="" />
+                @Html.TextBoxFor(Model => Model.Source)
+                @Html.LabelFor(Model => Model.Source)
+                @Html.ValidationMessageFor(M => M.Source, "", new { @class = "validationMsg" })
+            </div>
+            <div class="input-container">
+                @*<input type="password" required="" />
+                @Html.TextBoxFor(Model => Model.Destination)
+                @Html.LabelFor(Model => Model.Destination)
+                @Html.ValidationMessageFor(M => M.Destination, "", new { @class = "validationMsg" })
+            </div>
+            <div class="input-container">
+                @*<input type="password" required="" />
+                @Html.TextBoxFor(Model => Model.JourneyDate)
+                @Html.LabelFor(Model => Model.JourneyDate)
+                @Html.ValidationMessageFor(M => M.JourneyDate, "", new { @class = "validationMsg" })
+            </div>*@
+           
+                <span><h2>Booo!!!....Get Your Perfect Train</h2></span>
+                <div class="search">
+
+                    @Html.TextBoxFor(Model => Model.Source, new { @placeholder = "From" })
+                    @Html.ValidationMessageFor(M => M.Source, "", new { @class = "validationMsg" })
+
+                    @Html.TextBoxFor(Model => Model.Destination, new { @placeholder = "To" })
+                    @Html.ValidationMessageFor(M => M.Destination, "", new { @class = "validationMsg" })
+
+                    @Html.TextBoxFor(Model => Model.JourneyDate, new { @type = "date" })
+                    @Html.ValidationMessageFor(M => M.JourneyDate, "", new { @class = "validationMsg" })
+
+                </div>
+                <input type="submit" value="Search" id="btnSubmit" class="btn">
+
+           
+
+            @*<input type="submit" value="Search" id="btnSubmit" class="btn">*@
+           
+        </form>
+    </div>
+}

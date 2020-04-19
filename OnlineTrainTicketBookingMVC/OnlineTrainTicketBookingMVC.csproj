@@ -136,7 +136,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bon.jpg" />
+    <Content Include="Images\fb.jpg" />
+    <Content Include="Images\insta.jpg" />
     <Content Include="Images\Train.jpg" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\Voyage.jpg" />
+    <Content Include="Logger\ExceptionLogger.txt" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -148,11 +154,14 @@
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="scripts\jquery.validate.js" />
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\Train.js" />
     <Content Include="Styles\Style.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -164,7 +173,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FindTrainController.cs" />
     <Compile Include="Controllers\ManageUserController.cs" />
+    <Compile Include="Controllers\TicketBookingController.cs" />
     <Compile Include="Controllers\TrainClassController.cs" />
     <Compile Include="Controllers\TrainDetailsController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
@@ -173,7 +184,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PassengerDetailsViewModel.cs" />
+    <Compile Include="Models\SearchTrainViewModel.cs" />
+    <Compile Include="Models\SeatDetailsViewModel.cs" />
     <Compile Include="Models\SignInViewModel.cs" />
+    <Compile Include="Models\TicketBookingViewModel.cs" />
     <Compile Include="Models\TrainClassDetailsViewModel.cs" />
     <Compile Include="Models\TrainClassViewModel.cs" />
     <Compile Include="Models\TrainDetailsViewModel.cs" />
@@ -214,6 +229,12 @@
     <Content Include="Views\TrainClass\DisplayClass.cshtml" />
     <Content Include="Views\User\ViewProfile.cshtml" />
     <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\FindTrain\SearchTrain.cshtml" />
+    <Content Include="Views\FindTrain\FindTrainByStation.cshtml" />
+    <Content Include="Views\FindTrain\DisplayTrainDetails.cshtml" />
+    <Content Include="Views\FindTrain\ViewAvailability.cshtml" />
+    <Content Include="Views\TicketBooking\BookTicket.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

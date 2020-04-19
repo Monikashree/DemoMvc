@@ -1,5 +1,6 @@
 ﻿using OnlineTrainTicketBookingApp.BL;
 using OnlineTrainTicketBookingMVC.Models;
+using System;
 using System.Web.Mvc;
 
 namespace OnlineTrainTicketBookingMVC.Controllers
@@ -13,21 +14,44 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             userBL = new UserBL();
         }
        
-        public ActionResult ViewProfile(int id)
+        public ActionResult ViewProfile()
         {
-            //int id = (int)TempData["Message"];
-            User user = userBL.GetUserById(id);
+            //int id = (int)TempData["Message"];            
+            User user = userBL.GetUserById(Convert.ToInt32(Session["UserId"]));
             UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
             return View(userViewModel);
         }
-        public ActionResult EditProfile(int id)
+        public ActionResult EditProfile()
         {
-            User user = userBL.GetUserById(id);
+            User user = userBL.GetUserById(Convert.ToInt32(Session["UserId"]));
             UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
+           
             return View(userViewModel);
         }
         [HttpPost]
         public ActionResult EditProfile([Bind(Exclude = "ConfirmPassword")]UserViewModel userViewModel)
+        {
+            userViewModel.ConfirmPassword = userViewModel.Password;
+            //if (ModelState.IsValid)
+            {
+                User user = AutoMapper.Mapper.Map<UserViewModel, User>(userViewModel);  //Automapper to map details from the view model to entity
+                bool result = userBL.UpdateProfile(user);
+                if (!result)
+                    return View();
+                //TempData["Message"] = userViewModel.UserId;
+                return RedirectToAction("ViewProfile", "User");
+            }
+            //TempData["Message"] = userViewModel.UserId;
+            //return View();
+        }
+        public ActionResult ChangePassword()
+        {
+            User user = userBL.GetUserById(Convert.ToInt32(Session["UserId"]));
+            UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
+            return View(userViewModel);
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(UserViewModel userViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -35,11 +59,10 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 bool result = userBL.UpdateProfile(user);
                 if (!result)
                     return View();
-                //TempData["Message"] = userViewModel.UserId;
-                return RedirectToAction("ViewProfile", "User", new { id =  user.UserID});
+                ViewBag.Msg = "Reset Succeeded!!!";
             }
-            //TempData["Message"] = userViewModel.UserId;
             return View();
+                 
         }
     }
 }

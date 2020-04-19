@@ -58,7 +58,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         //[AllowAnonymous]
         [HttpPost]
         [ActionName("SignUp")]
-        [OutputCache(Duration = 60)]                                        //Output cache to help user if the signup fails again and again
+        //[OutputCache(Duration = 60)]                                        //Output cache to help user if the signup fails again and again
         public ActionResult SignUp_Post(UserViewModel userViewModel)        // Action method for signup
         {
             //TryUpdateModel(user);
@@ -129,10 +129,11 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                         string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                         var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                         HttpContext.Response.Cookies.Add(authCookie);
-                        if (user.Role.Equals("Admin"))
-                            return RedirectToAction("Index", "TrainDetails");
-                        //TempData["Message"] = user.UserID;
-                        return RedirectToAction("ViewProfile", "User", new { id = user.UserID});
+                        Session["UserId"] = user.UserID.ToString();
+                        if (user.Role.Equals("Admin"))                        
+                            return RedirectToAction("Index", "TrainDetails");                         
+                        //TempData["Message"] = user.UserID;                        
+                        return RedirectToAction("ViewProfile", "User");
                     }
                 }
                 TempData["Message"] = "Incorrect Username or Password";
@@ -143,6 +144,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();             //Sign Out Controll
+            Session.Abandon();
             return RedirectToAction("HomePage");
         }
     }

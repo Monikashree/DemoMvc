@@ -7,130 +7,134 @@
 <script src="~/scripts/jquery-1.10.2.min.js"></script>
 <script src="~/scripts/jquery.validate.min.js"></script>
 <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+
 @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
 {
-    <table class="box">
-       
-        <tr><td><h2>SignUp</h2></td></tr>
-        <tr >
-            <td>@Html.DisplayNameFor(Model => Model.FirstName)</td>
-            <td>
-                @Html.TextBoxFor(Model => Model.FirstName, new {@maxlength = 20})
-                @Html.ValidationMessageFor(M => M.FirstName, "",new { @class= "validationMsg"})
-            </td>
-        </tr >
-        <tr >
-            <td>@Html.DisplayNameFor(Model => Model.LastName)</td>
-            <td>
-                @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = 20 })
-                @Html.ValidationMessageFor(M => M.LastName, "", new { @class = "validationMsg" })
-            </td>
-        </tr>
-        <tr >
-            <td>@Html.LabelFor(Model => Model.Age)</td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Age)
-                @Html.ValidationMessageFor(M => M.Age, "", new { @class = "validationMsg" })
-                
-            </td>
-        </tr>
-        <tr >
-            <td>@Html.LabelFor(Model => Model.Sex)</td>
-            <td>
-                @Html.RadioButtonFor(Model => Model.Sex, "Male") Male
-                @Html.RadioButtonFor(Model => Model.Sex, "Female") Female
-                @Html.RadioButtonFor(Model => Model.Sex, "Others") Others
-                @Html.ValidationMessageFor(M => M.Sex, "", new { @class = "validationMsg" })
-            </td>
-        </tr>
-        <tr >
-            <td>@Html.LabelFor(Model => Model.Email)</td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Email, new { @maxlength = 30 })
-                @Html.ValidationMessageFor(M => M.Email, "", new { @class = "validationMsg" })
-            </td>
-        </tr>
-        <tr >
-            <td>@Html.DisplayNameFor(Model => Model.MobileNumber)</td>
-            <td>
-                @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = 10 })
-                @Html.ValidationMessageFor(M => M.MobileNumber, "", new { @class = "validationMsg" })
-            </td>
-        </tr>
-        <tr >
-            <td>@Html.LabelFor(Model => Model.Password)</td>
-            <td>
-                @Html.PasswordFor(Model => Model.Password, new { @maxlength = 15 })
-                @Html.ValidationMessageFor(M => M.Password, "", new { @class = "validationMsg" })
-            </td>
-        </tr>
-        <tr >
-            <td>@Html.DisplayNameFor(Model => Model.ConfirmPassword)</td>
-            <td>
-                @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = 15})
-                @Html.ValidationMessageFor(M => M.ConfirmPassword, "", new { @class = "validationMsg" })
-            </td>
-        </tr>
-        
-        <tr >
-            <td><input type="submit" value="SignUp" id="btnSubmit" class="btn"></td>
-        </tr>
-    </table>
-    @*<div class="box">
-        <form>
-            <span class="text-center">SignUp</span>
-            <div class="input-container">
-                @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = 20 })
-               @Html.LabelFor(Model => Model.FirstName)
-                @Html.ValidationMessageFor(M => M.FirstName)
-            </div>
-            <div class="input-container">
-                
-                @Html.TextBoxFor(Model => Model.LastName)
-                @Html.LabelFor(Model => Model.LastName)
-                @Html.ValidationMessageFor(M => M.LastName)
-            </div>
-            <div class="input-container">
+    
+        <table @*style="margin-left: 65%"*@ class="box">
 
-                @Html.TextBoxFor(Model => Model.Age)
-                @Html.ValidationMessageFor(M => M.Age)
-                @Html.LabelFor(Model => Model.Age)
-                @if (TempData["Message"] != null)
-                {
-                    @TempData["Message"].ToString();
-                }
+            <tr><td><h2>SignUp</h2></td></tr>
+            <tr>
+                <td>@Html.DisplayNameFor(Model => Model.FirstName)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = 20 })
+                    @Html.ValidationMessageFor(M => M.FirstName, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(Model => Model.LastName)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = 20 })
+                    @Html.ValidationMessageFor(M => M.LastName, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Age)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Age)
+                    @Html.ValidationMessageFor(M => M.Age, "", new { @class = "validationMsg" })
 
-            </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Sex)</td>
+                <td>
+                    @Html.RadioButtonFor(Model => Model.Sex, "Male") Male
+                    @Html.RadioButtonFor(Model => Model.Sex, "Female") Female
+                    @Html.RadioButtonFor(Model => Model.Sex, "Others") Others
+                    @Html.ValidationMessageFor(M => M.Sex, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Email)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Email, new { @maxlength = 30 })
+                    @Html.ValidationMessageFor(M => M.Email, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(Model => Model.MobileNumber)</td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = 10 })
+                    @Html.ValidationMessageFor(M => M.MobileNumber, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(Model => Model.Password)</td>
+                <td>
+                    @Html.PasswordFor(Model => Model.Password, new { @maxlength = 15 })
+                    @Html.ValidationMessageFor(M => M.Password, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(Model => Model.ConfirmPassword)</td>
+                <td>
+                    @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = 15 })
+                    @Html.ValidationMessageFor(M => M.ConfirmPassword, "", new { @class = "validationMsg" })
+                </td>
+            </tr>
 
-            <div class="input-container">
-                @Html.RadioButtonFor(Model => Model.Sex, "Male") Male
-                @Html.RadioButtonFor(Model => Model.Sex, "Female") Female
-                @Html.RadioButtonFor(Model => Model.Sex, "Others") Others
-                @Html.ValidationMessageFor(M => M.Sex)
-                @Html.LabelFor(Model => Model.Sex)
-            </div>
-            <div class="input-container">
-                @Html.TextBoxFor(Model => Model.Email)
-                @Html.ValidationMessageFor(M => M.Email)
-                @Html.LabelFor(Model => Model.Email)
-            </div>
-            <div class="input-container">
-                @Html.TextBoxFor(Model => Model.MobileNum)
-                @Html.ValidationMessageFor(M => M.MobileNum)
-                @Html.LabelFor(Model => Model.MobileNum)
-            </div>
-            <div class="input-container">
-                @Html.TextBoxFor(Model => Model.Password)
-                @Html.ValidationMessageFor(M => M.Password)
-                @Html.LabelFor(Model => Model.Password)
-            </div>
-            <div class="input-container">
-                @Html.TextBoxFor(Model => Model.ConfirmPassword)
-                @Html.ValidationMessageFor(M => M.ConfirmPassword)
-                @Html.LabelFor(Model => Model.ConfirmPassword)
-                
-            </div>
-            <input type="submit" value="SignUp" id="btnSubmit">
-        </form>
-    </div>*@
+            <tr>
+                <td><input type="submit" value="SignUp" id="btnSubmit" class="btn"></td>
+            </tr>
+        </table>
+        @*<div class="box">
+                <form>
+                    <span class="text-center">SignUp</span>
+                    <div class="input-container">
+                        @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = 20 })
+                       @Html.LabelFor(Model => Model.FirstName)
+                        @Html.ValidationMessageFor(M => M.FirstName)
+                    </div>
+                    <div class="input-container">
+
+                        @Html.TextBoxFor(Model => Model.LastName)
+                        @Html.LabelFor(Model => Model.LastName)
+                        @Html.ValidationMessageFor(M => M.LastName)
+                    </div>
+                    <div class="input-container">
+
+                        @Html.TextBoxFor(Model => Model.Age)
+                        @Html.ValidationMessageFor(M => M.Age)
+                        @Html.LabelFor(Model => Model.Age)
+                        @if (TempData["Message"] != null)
+                        {
+                            @TempData["Message"].ToString();
+                        }
+
+                    </div>
+
+                    <div class="input-container">
+                        @Html.RadioButtonFor(Model => Model.Sex, "Male") Male
+                        @Html.RadioButtonFor(Model => Model.Sex, "Female") Female
+                        @Html.RadioButtonFor(Model => Model.Sex, "Others") Others
+                        @Html.ValidationMessageFor(M => M.Sex)
+                        @Html.LabelFor(Model => Model.Sex)
+                    </div>
+                    <div class="input-container">
+                        @Html.TextBoxFor(Model => Model.Email)
+                        @Html.ValidationMessageFor(M => M.Email)
+                        @Html.LabelFor(Model => Model.Email)
+                    </div>
+                    <div class="input-container">
+                        @Html.TextBoxFor(Model => Model.MobileNum)
+                        @Html.ValidationMessageFor(M => M.MobileNum)
+                        @Html.LabelFor(Model => Model.MobileNum)
+                    </div>
+                    <div class="input-container">
+                        @Html.TextBoxFor(Model => Model.Password)
+                        @Html.ValidationMessageFor(M => M.Password)
+                        @Html.LabelFor(Model => Model.Password)
+                    </div>
+                    <div class="input-container">
+                        @Html.TextBoxFor(Model => Model.ConfirmPassword)
+                        @Html.ValidationMessageFor(M => M.ConfirmPassword)
+                        @Html.LabelFor(Model => Model.ConfirmPassword)
+
+                    </div>
+                    <input type="submit" value="SignUp" id="btnSubmit">
+                </form>
+            </div>*@
+     
 }
+    

@@ -1,0 +1,35 @@
+﻿@model OnlineTrainTicketBookingMVC.Models.TicketBookingViewModel
+
+@{
+    ViewBag.Title = "BookTicket";
+}
+
+<h2>BookTicket</h2>
+@using (Html.BeginForm("BookTicket", "TicketBooking", FormMethod.Post))
+{
+    <table class="box">
+        <tr>
+            <td>Train No</td>
+            <td>@TempData["no"].ToString()</td>
+        </tr>
+        <tr>
+            <td>Class Name</td>
+            <td>@TempData["name"].ToString()</td>
+        </tr>
+        <tr>
+            <td>No Of Passengers</td>
+            <td>
+            @Html.EditorFor(Model => Model.NoOfPassengers)
+            @Html.ValidationMessageFor(M => M.NoOfPassengers, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr>
+            <td>Journey Date</td>
+            <td>
+                @Html.EditorFor(Model => Model.JourneyDate, new { @type = "date"})
+                @Html.ValidationMessageFor(M => M.JourneyDate, "", new { @class = "validationMsg" })
+            </td>
+        </tr>
+        <tr><td><input type="submit" value="AddPassenger" id="btnSubmit" class="btn"></td></tr>
+        </table>
+}

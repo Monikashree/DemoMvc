@@ -1,17 +1,22 @@
-﻿.body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.body {   
+    margin-left: 0%;
+    margin-right:0%;
+    margin-top: 0%;
+    margin-bottom: 10%;
     background-image:url('../Images/Train.jpg');
     background-size: cover;
     background-position:center;
     background-repeat:no-repeat;
-    height : 100%, 100%; 
+    height : 100%, 100%;    
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 50%;
+    padding-right: 20%;
+    font: Allerta Stencil;
+    color: gold;
+    text-shadow: 0 0 8px blue;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -28,26 +33,31 @@ textarea {
 .header{
   color: blue;   
   text-shadow: 0 0 3px #8deff9;  
-  margin-top: 2%;
-  margin-bottom :2%; 
+  margin-top: 0%;
+  margin-bottom :0%; 
   background-color: #BD32BD;  
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  text-align:left; 
+  
 }
 .option{
     color: blue; 
     text-shadow: 0 0 3px #8deff9;
+    align-content:center;
+    margin-bottom: 0.79%;
 }
 .option1{
     color: blue; 
     text-shadow: 0 0 3px #8deff9;  
     margin-left: 55%;
+    margin-bottom: 0.79%;
 }
 
 .text-center{
-	color:#fff;	
+	color:#BD32BD;	
 	text-transform:uppercase;
-    font-size: 23px;
+    font-size: 25px;
     margin: -50px 0 80px 0;
     display: block;
     text-align: center;
@@ -55,11 +65,21 @@ textarea {
 .box{
 	position:absolute;
 	left:50%;
-	top:60%;
+	top:50%;
 	transform: translate(-50%,-50%);
     background-color: rgba(0, 0, 0, 0.89);
 	border-radius:3px;
-	padding:70px 100px;
+	padding:25px 80px;
+    color: white;
+}
+.homebox{
+	position:absolute;
+	left:50%;
+	top:70%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+	border-radius:3px;
+	padding:20px 80px;
     color: white;
 }
 .input-container{
@@ -102,6 +122,19 @@ textarea {
 	cursor:pointer;
 	position:relative;
 }
+.btn1{
+	color:#fff;
+	background-color:#e74c3c;
+	outline: none;
+    border: 0;
+    color: #fff;	
+	text-transform:uppercase;	
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+    align-content:center;
+}
+
 /*.btn:after{
 	content:"";
 	position:absolute;
@@ -120,4 +153,113 @@ textarea {
 .validationMsg{
     color:red;
     text-shadow: 0 0 2px #8deff9;
+}
+
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #338;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 0.55% 1.5%;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.mark{
+    font: 12px arial, verdana;
+    color:gold;
+    margin-top: 0.5%;
+}
+.img1{
+    height: 1.5%;
+    width: 2.0%;
+    padding-left:0%;
+    padding-right:0%;
+    margin-left:0%;
+    margin-right:0%;
+}
+.img2{
+    height: 2.5%;
+    width: 1.5%;
+    padding-left:0%;
+    padding-right:0%;
+    margin-left:0%;
+    margin-right:0%;
+    text-decoration:none;
+    background-color:#BD32BD;
+}
+.img3{
+    height: 1.5%;
+    width: 2.0%;
+    padding-left:0%;
+    padding-right:0%;
+    margin-left:0%;
+    margin-right:0%;
+}
+.optn{     
+    padding: 0.55% 1.5%;
+}
+
+.logo{
+    height:1.5%;
+    width:2%;
+    margin-left:0%;
+    color:black;
+    
+}
+
+.search{
+     padding: 0.55% 1.5% 2.5%;
+     float: right;
 }

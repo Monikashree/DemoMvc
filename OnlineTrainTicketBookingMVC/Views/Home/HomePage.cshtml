@@ -1,9 +1,30 @@
-﻿
+﻿@model OnlineTrainTicketBookingMVC.Models.SearchTrainViewModel
 @{
     ViewBag.Title = "HomePage";
-   
+
 }
 
 <h1>Bon Voyage</h1>
-<h2>Online Train Ticket Booking</h2>
+<h2>Pack ur suit...start your journey here</h2>
+
+@using (Html.BeginForm("DisplayTrainDetails", "FindTrain"))
+{
+    <div class="homebox" >
+       <span><h2>Booo!!!....Get Your Perfect Train</h2></span>
+        <div class="search">
+            
+                @Html.TextBoxFor(Model => Model.Source, new { @placeholder = "From" })
+                @Html.ValidationMessageFor(M => M.Source, "", new { @class = "validationMsg" })
+            
+                @Html.TextBoxFor(Model => Model.Destination, new { @placeholder = "To" })
+                @Html.ValidationMessageFor(M => M.Destination, "", new { @class = "validationMsg" })           
+                
+                @Html.TextBoxFor(Model => Model.JourneyDate, new { @type="date"})
+                @Html.ValidationMessageFor(M => M.JourneyDate, "", new { @class = "validationMsg" })           
+            
+        </div>
+        <input type="submit" value="Search" id="btnSubmit" class="btn">
+
+    </div>
+}
 
