@@ -16,6 +16,9 @@ namespace OnlineTrainTicketBookingMVC.Models
         public string PassengerName { get; set; }
 
         [Required]
+        public string Gender { get; set; }
+
+        [Required]
         public short Age { get; set; }
 
         [Required]
@@ -23,7 +26,7 @@ namespace OnlineTrainTicketBookingMVC.Models
 
         [Required]
         public short SeatNo { get; set; }
-
-        public string Status { get; set; }
+       
+        public int Cost { get; set; }
     }
 }

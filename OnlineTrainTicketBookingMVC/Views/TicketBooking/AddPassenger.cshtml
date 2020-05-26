@@ -1,0 +1,180 @@
+﻿@model  OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel
+@{
+    ViewBag.Title = "AddPassenger";
+}
+@if(TempData["BookingId"]!= null)
+{
+    TempData.Keep("TrainNo");
+    TempData.Keep("ClassName");
+    TempData.Keep("NoOfSeats");
+    TempData.Keep("BookingId");
+    //TempData.Keep("Seats");
+}
+<link rel="stylesheet" href="~/Content/Site.css" />
+<script src="~/scripts/Train.js"></script>
+<script src="~/scripts/jquery-2.2.3.min.js"></script>
+
+@using (Html.BeginForm("AddPassenger", "TicketBooking", FormMethod.Post))
+{
+   
+    @Html.AntiForgeryToken();
+    <div class="seatStructure">
+        <table>
+            <tr>
+                <td>Train No</td>
+                <td>@TempData["TrainNo"].ToString()</td>
+            </tr>
+            <tr>
+                <td>Class Name</td>
+                <td>@TempData["ClassName"].ToString()</td>
+            </tr>
+            @*<table>*@
+                <tr><td><h2>AddPassenger</h2></td></tr>
+                <tr>
+                    <th>Passenger Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Mobile Number</th>
+                    <th>Seat No</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.EditorFor(Model => Model.PassengerName)
+                        @Html.ValidationMessageFor(M => M.PassengerName, "", new { @class = "validationMsg" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(Model => Model.Gender, new List<SelectListItem>
+                   { new SelectListItem{Text="Male", Value="Male"},
+                     new SelectListItem{Text="Female", Value="Female"}, new SelectListItem{Text="Others", Value="Others"}}, "Please select")
+                        @*@Html.RadioButtonFor(Model => Model.Gender, "Male") Male
+                        @Html.RadioButtonFor(Model => Model.Gender, "Female") Female
+                        @Html.RadioButtonFor(Model => Model.Gender, "Others") Others*@
+                        @Html.ValidationMessageFor(M => M.Gender, "", new { @class = "validationMsg" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(Model => Model.Age)
+                        @Html.ValidationMessageFor(M => M.Age, "", new { @class = "validationMsg" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = 10 })
+                        @Html.ValidationMessageFor(M => M.MobileNumber, "", new { @class = "validationMsg" })
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(Model => Model.SeatNo, new { @id = "seatsDisplay" })
+                    </td>
+                </tr>
+            </table>
+
+        <table id="seatsBlock">
+            @for (int i = 1; i <= (int)TempData["NoOfSeats"]; i = i + 12)
+            {
+                //(int)TempData["NoOfSeats"]
+                <tr>
+                    @for (int j = i; j <= i + 11; j++)
+                    {
+                        if (j == ((int)TempData["NoOfSeats"] + 1))
+                        {
+                            break;
+                        }
+                        if (j % 4 == 0)
+                        {
+                            <td><input type="checkbox" class="sideSeats" value="@j" /> </td>
+                            <td>------></td>
+                        }
+                        else
+                        {
+                            <td><input type="checkbox" class="seats" value="@j" /> </td>
+                        }
+
+                    }
+
+                </tr>
+            }
+        </table>
+
+        <div>
+            <input type="button" onclick="updateTextArea()" value="Confirm" class="btn" />
+            <input type="submit" value="OK" class="btn">
+            @*<h2>@ViewBag.data.length()</h2>*@
+            @*<input type="text" id="seatsDisplay" />*@
+        </div>
+    </div>
+}
+<script>
+
+    //function onLoaderFunc() {
+    //    $(".seatStructure *").prop("disabled", true);
+    //    $(".displayerBoxes *").prop("disabled", true);
+    //}
+
+    //function takeData() {
+    //    if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
+    //        alert("Please Enter your Name and Number of Seats");
+    //    } else {
+    //        $(".inputForm *").prop("disabled", true);
+    //        $(".seatStructure *").prop("disabled", false);
+    //        document.getElementById("notification").innerHTML =
+    //            "<b style='margin-bottom:0px;background:#ff9800;letter-spacing:1px;'>Please Select your Seats NOW!</b>";
+    //    }
+    //}
+
+
+    function updateTextArea() {
+
+        //if ($("input:checked").length == ($("#Numseats").val())) {
+        //    $(".seatStructure *").prop("disabled", true);
+
+        //var allNameVals = [];
+        //var allNumberVals = [];
+        var allSeatsVals = [];
+
+        //Storing in Array
+        //allNameVals.push($("#Username").val());
+        //allNumberVals.push($("#Numseats").val());
+        $('#seatsBlock :checked').each(function () {
+            allSeatsVals.push($(this).val());
+            
+        });
+
+        //Displaying
+        //$('#nameDisplay').val(allNameVals);
+        //$('#NumberDisplay').val(allNumberVals);
+        $('#seatsDisplay').val(allSeatsVals);
+        //} else {
+        //    alert("Please select " + ($("#Numseats").val()) + " seats")
+        //}
+    }
+
+
+    /*function myFunction() {
+        alert($("input:checked").length);
+    }*/
+
+    /*
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    */
+
+
+    $(":checkbox").click(function () {
+        //if ($("input:checked").length == ($("#Numseats").val())) {
+        $(":checkbox").prop('disabled', true);    //For single selection
+        $(':checked').prop('disabled', false);  //For multiple selection
+        //} else {
+        //    $(":checkbox").prop('disabled', false);
+        //}
+    });
+
+</script>

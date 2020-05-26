@@ -12,13 +12,20 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 50%;
+    padding-left: 20%;
     padding-right: 20%;
     font: Allerta Stencil;
     color: gold;
     text-shadow: 0 0 8px blue;
 }
 
+.homeContent{
+    padding-left: 40%;
+    padding-right: 10%;
+    font: Allerta Stencil;
+    color: gold;
+    text-shadow: 0 0 8px blue;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -263,3 +270,56 @@ textarea {
      padding: 0.55% 1.5% 2.5%;
      float: right;
 }
+
+
+
+
+
+/*Style for seat reservation*/
+input[type=checkbox] {
+    width: 13px;
+    margin-right: 14px;
+    cursor: pointer;
+}
+input[type=checkbox]:before {
+    content: "";
+    width: 25px;
+    height: 18px;
+    border-radius: 5px;
+    /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+    -webkit-border-radius: 5px;
+    /* Firefox 1-3.6 */
+    -moz-border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    border: 3px solid #ff9800;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    background-color: #ffffff;
+}
+
+input[type=checkbox]:checked:before {
+    background-color: Green;
+    font-size: 15px;
+}
+.displayerBoxes {
+    margin-top: 2em;
+}
+.seats {
+    border: 1px solid red;
+    background: yellow;
+}
+.sideSeats {
+    border: 1px solid red;
+    background: yellow;
+    margin-left: 3em;
+    padding-right: 3em;
+}
+
+.bg{
+    margin-left: 2em;
+    margin-top : 2em;
+}
+

@@ -2,6 +2,7 @@
 using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.Models;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace OnlineTrainTicketBookingMVC.Controllers
@@ -14,34 +15,91 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         public TicketBookingController()
         {
             ticketBookingBL = new TicketBookingBL();
+
         }
 
-        public ActionResult BookTicket(int id,int no, int c_id, string name)
+        public ActionResult BookTicket(int t_Id,int t_No, int c_id, string c_Name, int seat, int cost)
         {
-            TempData["id"] = id;
-            TempData["no"] = no;
-            TempData["c_id"] = c_id;
-            TempData["name"] = name;
+            TempData["T_Id"] = t_Id;
+            TempData["T_No"] = t_No;
+            TempData["C_Id"] = c_id;
+            TempData["C_Name"] = c_Name;
+            TempData["Seat"] = seat;
+            TempData["Cost"] = cost;
             return View();
         }
 
         [HttpPost]
         public ActionResult BookTicket(TicketBookingViewModel ticketBookingViewModel)
         {
-            if(ModelState.IsValid)
-            {
-                ticketBookingViewModel.TrainId = (int)TempData["id"];
-                ticketBookingViewModel.UserId = (int)Session["UserId"];
-                ticketBookingViewModel.BookingTime = DateTime.Now;
+            ticketBookingViewModel.TrainId = (int)TempData["T_Id"];
+            ticketBookingViewModel.UserId = Convert.ToInt32(Session["UserId"]);
+            ticketBookingViewModel.ClassId = (int)TempData["C_Id"];
+            ticketBookingViewModel.BookingTime = DateTime.Now;
+            int trainNo = (int)TempData["T_No"];
+            string className = TempData["C_Name"].ToString();
+            if (ModelState.IsValid)
+            {   
                 TicketBooking ticketBooking = AutoMapper.Mapper.Map<TicketBookingViewModel, TicketBooking>(ticketBookingViewModel);                
                 if(!ticketBookingBL.AddBookingDetails(ticketBooking))
                 {
                     return RedirectToAction("BookTicket");
-                }
+                }                
                 TempData["BookingId"] = ticketBooking.BookingId;
+                TempData["Doj"] = ticketBooking.JourneyDate;
+                TempData["NoOfSeats"] = (int)TempData["Seat"];
+                //int seat = (int)TempData["Seat"];
+                TempData["TrainNo"] = trainNo;
+                TempData["ClassName"] = className;
+                //return RedirectToAction("AddPassenger", "TicketBooking", new { @trainNo = trainNo, @className = className});
                 return RedirectToAction("AddPassenger", "TicketBooking");
             }
             return RedirectToAction("BookTicket");
+        }
+
+        ///public ActionResult AddPassenger(int trainNo, string className)
+        public ActionResult AddPassenger()
+        {
+            //TempData["TrainNo"] = trainNo;
+            //TempData["ClassName"] = className;
+            //TempData["Seats"] = seat;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPassenger(PassengerDetailsViewModel passengerDetailsViewModel)
+        {
+            passengerDetailsViewModel.BookingId = (int)TempData["BookingId"];
+            passengerDetailsViewModel.Cost = ticketBookingBL.CalculateCost(passengerDetailsViewModel.Age, (int)TempData["Cost"]);
+            if(ModelState.IsValid)
+            {
+                PassengerDetails passengerDetails = AutoMapper.Mapper.Map<PassengerDetailsViewModel, PassengerDetails>(passengerDetailsViewModel);
+                if(ticketBookingBL.AddPassengerDetails(passengerDetails))
+                {
+                    return RedirectToAction("DisplayPassengerDetails", "TicketBooking");
+                }
+            }
+            return View(passengerDetailsViewModel);
+        }
+        public ActionResult DisplayPassengerDetails()
+        {
+            TicketBooking ticketBooking = ticketBookingBL.GetNoOfPassengers(Convert.ToInt32(TempData["BookingId"]));
+            TempData["NOP"] = ticketBooking.NoOfPassengers;
+            TempData["Count"] = ticketBookingBL.GetPassengerCountByID(Convert.ToInt32(TempData["BookingId"]));
+            List<PassengerDetails> passengerList = ticketBookingBL.GetPassengerDetails(Convert.ToInt32(TempData["BookingId"]));
+            List<PassengerDetailsViewModel> passengerViewModelList = new List<PassengerDetailsViewModel>();
+            foreach (PassengerDetails details in passengerList)
+            {                                                                           //Display passenger Details
+                PassengerDetailsViewModel passengerDetailsViewModel = AutoMapper.Mapper.Map<PassengerDetails, PassengerDetailsViewModel>(details);
+                passengerViewModelList.Add(passengerDetailsViewModel);
+            }
+            return View(passengerViewModelList);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DisplayPassengerDetails(PassengerDetails passengerDetails)
+        {
+            return View();
         }
     }
 }

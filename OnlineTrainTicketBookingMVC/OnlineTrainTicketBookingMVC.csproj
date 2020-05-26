@@ -153,6 +153,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery-2.2.3.min.js" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
@@ -172,7 +173,7 @@
     <Compile Include="App_Start\CustomException.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Content\RouteConfig.cs" />
     <Compile Include="Controllers\FindTrainController.cs" />
     <Compile Include="Controllers\ManageUserController.cs" />
     <Compile Include="Controllers\TicketBookingController.cs" />
@@ -235,6 +236,8 @@
     <Content Include="Views\FindTrain\DisplayTrainDetails.cshtml" />
     <Content Include="Views\FindTrain\ViewAvailability.cshtml" />
     <Content Include="Views\TicketBooking\BookTicket.cshtml" />
+    <Content Include="Views\TicketBooking\AddPassenger.cshtml" />
+    <Content Include="Views\TicketBooking\DisplayPassengerDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

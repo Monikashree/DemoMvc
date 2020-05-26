@@ -34,8 +34,10 @@
             <td>
                 @Html.DisplayFor(modelItem => Classes.Cost)
             </td>
-
-            <td>@Html.ActionLink("Book", "BookTicket", "TicketBooking", new { id = Model.First().TrainDetails.TrainId, no = Model.First().TrainDetails.TrainNo, c_Id = Classes.TrainClasses.ClassId, name = Classes.TrainClasses.ClassName },"")</td>
+            @*@if (User.Identity.IsAuthenticated)
+            {*@
+                <td>@Html.ActionLink("Book", "BookTicket", "TicketBooking", new { t_Id = Model.First().TrainDetails.TrainId, t_No = Model.First().TrainDetails.TrainNo, c_Id = Classes.TrainClasses.ClassId, c_Name = Classes.TrainClasses.ClassName, seat = Classes.Seats, cost = Classes.Cost }, "")</td>
+            @*}*@           
 
         </tr>
     }

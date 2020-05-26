@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel>
+
+@{
+    ViewBag.Title = "DisplayPassengerDetails";
+}
+<script src="~/scripts/Train.js"></script>
+@if (TempData["BookingId"] != null)
+{
+    TempData.Keep("BookingId");
+    TempData.Keep("Doj");
+    TempData.Keep("NOP");
+    TempData.Keep("Count");
+    TempData.Keep("TrainNo");
+    TempData.Keep("ClassName");
+    //TempData.Keep("Passenger");
+}
+@using (Html.BeginForm("DisplayPassengerDetails", "TicketBooking", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+
+    
+
+    <table class="box" border="1">
+        <tr><td><h2>PassengerDetails</h2></td></tr>
+        <tr>
+            <td>Train No</td>
+            <td>@TempData["TrainNo"].ToString()</td>
+        </tr>
+        <tr>
+            <td>Class Name</td>
+            <td>@TempData["ClassName"].ToString()</td>
+        </tr>
+        <tr>
+
+            <td>Journey Date</td>
+            <td>@TempData["Doj"].ToString()</td>
+        </tr>
+        <tr>
+            <th>Passenger Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Mobile Number</th>
+            <th>Seat No</th>
+            <th>Cost</th>
+        </tr>
+        @foreach (var data in Model)
+        {
+            <tr>
+                @Html.HiddenFor(modelItem => data.PassengerId)
+                <td>@Html.DisplayFor(modelItem => data.PassengerName)</td>
+                <td>@Html.DisplayFor(modelItem => data.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => data.Age)</td>
+                <td>@Html.DisplayFor(modelItem => data.MobileNumber)</td>
+                <td>@Html.DisplayFor(modelItem => data.SeatNo)</td>
+                <td>@Html.DisplayFor(modelItem => data.Cost)</td>
+            </tr>
+        }
+        @if ((int)TempData["Count"] < (int)TempData["NOP"])
+        {
+            <tr><td>@Html.ActionLink("Add Passenger", "AddPassenger", "TicketBooking")</td></tr>
+        }
+        @*, new { @trainNo = (int)TempData["TrainNo"], @className = TempData["ClassName"]}*@
+        @*<tr><td><input type='button' value='Proceed to Pay' id='myButton'  class="btn" onClick='redirectOnClick(TempData["BookingId"])' /></td></tr>*@
+        <tr><td><input type='button' value='Proceed to Pay' class="btn" /></td></tr>
+    </table>
+}

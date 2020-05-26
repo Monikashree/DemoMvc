@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineTrainTicketBookingApp.Entity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,18 +18,16 @@ namespace OnlineTrainTicketBookingMVC.Models
         public TrainDetailsViewModel TrainDetails { get; set; }
 
         [Required]
-        public string ClassName { get; set; }
+        public int ClassId { get; set; }
 
         [Required]
-        [Range(1,100, ErrorMessage ="Please enter valid number")]
+        [Range(1, 100, ErrorMessage = "Please enter valid number")]
         public int NoOfPassengers { get; set; }
 
         [Required]
         [Column(TypeName = "date")]
         public DateTime JourneyDate { get; set; }
 
-        [Required]
-        public int Cost { get; set; }
 
         [Required]
         //[Column(TypeName = "time")]
