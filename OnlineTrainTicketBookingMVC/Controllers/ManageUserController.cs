@@ -13,6 +13,18 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         {
             userBL = new UserBL();
         }
+        public ActionResult BlockedUser()
+        {
+            IEnumerable<User> blockedUserList = userBL.GetBlockedUserDetails();
+            List<UserViewModel> userViewModelList = new List<UserViewModel>();
+            //IEnumerable<TrainDetails> trainList = TrainDetailsBL.GetTrainDetails();
+            foreach (User user in blockedUserList)                                  //Displaying User Details
+            {
+                UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
+                userViewModelList.Add(userViewModel);
+            }
+            return View("DisplayUser",userViewModelList);
+        }
         public ActionResult DisplayUser()
         {
             IEnumerable<User> userDetailsList = userBL.GetUserDetails();

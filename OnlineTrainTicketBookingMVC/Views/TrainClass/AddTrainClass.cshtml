@@ -5,7 +5,6 @@
     //Layout = "~/Views/Shared/_AdminPage.cshtml";
 }
 
-<h2>AddTrainClass</h2>
 
 
 @using (Html.BeginForm("AddTrainClass", "TrainClass", FormMethod.Post))
@@ -13,6 +12,7 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(Model => Model.TrainId)
     <table class="box">
+        <tr><td><h2>AddTrainClass</h2></td></tr>
         <tr>
             <td>@Html.DisplayNameFor(Model => Model.TrainId)</td>
             <td>
@@ -44,8 +44,9 @@
         <tr>
             <td><input type="submit" value="Add" id="btnSubmit" class="btn"></td>
         </tr>
+        <tr><td>@Html.ActionLink("Back to List", "DisplayTrainCategories")</td></tr>
     </table>
 }
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "DisplayTrainCategories")
-</div>
+</div>*@

@@ -14,7 +14,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         {
             trainDetailsBL = new TrainDetailsBL();
         }
-        public ActionResult SearchTrain()
+        public ActionResult SearchTrain()           //just for search of train on a whole no need now and not in usage
         {
             var data = trainDetailsBL.GetTrainDetails();
             ViewBag.result = data;

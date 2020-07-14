@@ -6,12 +6,13 @@
    
 }
 
-<h2>Edit</h2>
+
 @using (Html.BeginForm("Edit", "ManageUser", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
     <table class="box">
+        <tr><td><h2>Edit</h2></td></tr>
         <tr>
             @Html.HiddenFor(modelItem => Model.UserId)
             @Html.HiddenFor(modelItem => Model.FirstName)
@@ -35,7 +36,7 @@
         <tr>
             <td><input type="submit" value="Save" id="btnSubmit" class="btn"></td>
         </tr>
-        <tr>@Html.ActionLink("Back to List", "DisplayUser")</tr>
+        <tr><td>@Html.ActionLink("Back to List", "DisplayUser")</td></tr>
     </table>
 }
 

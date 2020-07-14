@@ -6,13 +6,15 @@ namespace OnlineTrainTicketBookingMVC.Models
 {
     public class SearchTrainViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Source station is required")]
+        [RegularExpression("^[A-Z][a-z]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
         public string Source { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Destination station is required")]
+        [RegularExpression("^[A-Z][a-z]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]
         public string Destination { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Date is required")]
         [Column(TypeName = "date")]
         public DateTime JourneyDate { get; set; }
 

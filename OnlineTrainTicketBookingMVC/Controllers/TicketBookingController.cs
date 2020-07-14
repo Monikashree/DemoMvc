@@ -63,6 +63,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             //TempData["TrainNo"] = trainNo;
             //TempData["ClassName"] = className;
             //TempData["Seats"] = seat;
+            List<TicketBooking> ticketBooking = 
             return View();
         }
         [HttpPost]

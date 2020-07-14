@@ -84,3 +84,4 @@ TicketBooking ---> AddPassenger ---> The parameters dictionary contains a null e
 Parameter name: parameters ---> 13-05-2020 09:11:32 PM
 TicketBooking ---> AddPassenger ---> The parameters dictionary contains a null entry for parameter 'trainNo' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult AddPassenger(Int32, System.String)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
 Parameter name: parameters ---> 13-05-2020 09:11:57 PM
+User ---> ViewProfile ---> Object reference not set to an instance of an object. ---> 13-07-2020 11:05:05 PM
