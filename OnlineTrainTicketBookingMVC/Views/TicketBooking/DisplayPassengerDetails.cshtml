@@ -62,6 +62,6 @@
         @*, new { @trainNo = (int)TempData["TrainNo"], @className = TempData["ClassName"]}*@
         @*<tr><td><input type='button' value='Proceed to Pay' id='myButton'  class="btn" onClick='redirectOnClick(TempData["BookingId"])' /></td></tr>*@
         <tr><td><input type='button' value='Proceed to Pay' class="btn" /></td></tr>
-        @*<tr><td>@Html.ActionLink("Cancel",)</td></tr>*@
+        <tr><td>@Html.ActionLink("Cancel", "ClearSeats", "TicketBooking", new { id = (int)TempData["BookingId"]},"")</td></tr>
     </table>
 }

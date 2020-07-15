@@ -1,5 +1,4 @@
-﻿using OnlineTrainTicketBookingApp.BL;
-using OnlineTrainTicketBookingApp.Entity;
+﻿using OnlineTrainTicketBookingApp.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,5 +27,10 @@ namespace OnlineTrainTicketBookingMVC.Models
         [RegularExpression("^[0-9]*", ErrorMessage = "Please enter valid Cost")]
         [Range(100, 2000, ErrorMessage = "Please enter valid Cost")]
         public int Cost { get; set; }
+
+        public TrainClassDetailsViewModel()
+        {
+
+        }
     }
 }

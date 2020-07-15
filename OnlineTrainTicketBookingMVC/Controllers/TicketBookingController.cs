@@ -54,6 +54,8 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 //return RedirectToAction("AddPassenger", "TicketBooking", new { @trainNo = trainNo, @className = className});
                 return RedirectToAction("AddPassenger", "TicketBooking");
             }
+            //TempData["TrainId"] = (int)TempData["T_Id"];
+            //TempData["ClassId"] = (int)TempData["C_Id"];
             return RedirectToAction("BookTicket");
         }
 
@@ -63,8 +65,20 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             //TempData["TrainNo"] = trainNo;
             //TempData["ClassName"] = className;
             //TempData["Seats"] = seat;
-            List<TicketBooking> ticketBooking = 
+            List<TicketBooking> ticketBookingList = ticketBookingBL.GetBookingId((int)TempData["T_Id"], (int)TempData["C_Id"]);
+            List<PassengerDetailsViewModel> passengerDetailsViewModelList = new List<PassengerDetailsViewModel>();
+            foreach(TicketBooking booking in ticketBookingList)
+            {
+                List<PassengerDetails> passengerDetailsList = ticketBookingBL.GetPassengerDetails(booking.BookingId);
+                foreach(PassengerDetails passengerDetails in passengerDetailsList)
+                {
+                    PassengerDetailsViewModel passengerDetailsViewModel = AutoMapper.Mapper.Map<PassengerDetails, PassengerDetailsViewModel>(passengerDetails);
+                    passengerDetailsViewModelList.Add(passengerDetailsViewModel);
+                } 
+            }
+            ViewBag.Seats = passengerDetailsViewModelList;
             return View();
+            //return View(Tuple.Create<PassengerDetailsViewModel, IEnumerable<PassengerDetailsViewModel>>(new PassengerDetailsViewModel(), passengerDetailsViewModelList));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -101,6 +115,12 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         public ActionResult DisplayPassengerDetails(PassengerDetails passengerDetails)
         {
             return View();
+        }
+
+        public ActionResult ClearSeats(int id)
+        {
+            bool status = ticketBookingBL.ClearSeats(id);
+            return RedirectToAction("HomePage", "Home");
         }
     }
 }

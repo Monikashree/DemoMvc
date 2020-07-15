@@ -1,13 +1,16 @@
-﻿@model  OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel
+﻿@*@model  Tuple<OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel, IEnumerable<OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel>>*@
+@model OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel
 @{
     ViewBag.Title = "AddPassenger";
 }
-@if(TempData["BookingId"]!= null)
+@if (TempData["BookingId"] != null)
 {
     TempData.Keep("TrainNo");
     TempData.Keep("ClassName");
     TempData.Keep("NoOfSeats");
     TempData.Keep("BookingId");
+    TempData.Keep("T_Id");
+    TempData.Keep("C_Id");
     //TempData.Keep("Seats");
 }
 <link rel="stylesheet" href="~/Content/Site.css" />
@@ -16,10 +19,14 @@
 
 @using (Html.BeginForm("AddPassenger", "TicketBooking", FormMethod.Post))
 {
-   
+
     @Html.AntiForgeryToken();
     <div class="seatStructure">
         <table>
+            @*<tr>
+                    <td>@Html.HiddenFor(Model => Model.BookingId)</td>
+                    <td>@Html.HiddenFor(Model => Model.PassengerId)</td>
+                </tr>*@
             <tr>
                 <td>Train No</td>
                 <td>@TempData["TrainNo"].ToString()</td>
@@ -29,41 +36,41 @@
                 <td>@TempData["ClassName"].ToString()</td>
             </tr>
             @*<table>*@
-                <tr><td><h2>AddPassenger</h2></td></tr>
-                <tr>
-                    <th>Passenger Name</th>
-                    <th>Gender</th>
-                    <th>Age</th>
-                    <th>Mobile Number</th>
-                    <th>Seat No</th>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.EditorFor(Model => Model.PassengerName)
-                        @Html.ValidationMessageFor(M => M.PassengerName, "", new { @class = "validationMsg" })
-                    </td>
-                    <td>
-                        @Html.DropDownListFor(Model => Model.Gender, new List<SelectListItem>
+            <tr><td><h2>AddPassenger</h2></td></tr>
+            <tr>
+                <th>Passenger Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Mobile Number</th>
+                <th>Seat No</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.EditorFor(Model => Model.PassengerName)
+                    @Html.ValidationMessageFor(M => M.PassengerName, "", new { @class = "validationMsg" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.Gender, new List<SelectListItem>
                    { new SelectListItem{Text="Male", Value="Male"},
                      new SelectListItem{Text="Female", Value="Female"}, new SelectListItem{Text="Others", Value="Others"}}, "Please select")
-                        @*@Html.RadioButtonFor(Model => Model.Gender, "Male") Male
+                    @*@Html.RadioButtonFor(Model => Model.Gender, "Male") Male
                         @Html.RadioButtonFor(Model => Model.Gender, "Female") Female
                         @Html.RadioButtonFor(Model => Model.Gender, "Others") Others*@
-                        @Html.ValidationMessageFor(M => M.Gender, "", new { @class = "validationMsg" })
-                    </td>
-                    <td>
-                        @Html.EditorFor(Model => Model.Age)
-                        @Html.ValidationMessageFor(M => M.Age, "", new { @class = "validationMsg" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = 10 })
-                        @Html.ValidationMessageFor(M => M.MobileNumber, "", new { @class = "validationMsg" })
-                    </td>
-                    <td>
-                        @Html.TextAreaFor(Model => Model.SeatNo, new { @id = "seatsDisplay" })
-                    </td>
-                </tr>
-            </table>
+                    @Html.ValidationMessageFor(M => M.Gender, "", new { @class = "validationMsg" })
+                </td>
+                <td>
+                    @Html.EditorFor(Model => Model.Age)
+                    @Html.ValidationMessageFor(M => M.Age, "", new { @class = "validationMsg" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = 10 })
+                    @Html.ValidationMessageFor(M => M.MobileNumber, "", new { @class = "validationMsg" })
+                </td>
+                <td>
+                    @Html.TextAreaFor(Model => Model.SeatNo, new { @id = "seatsDisplay" })
+                </td>
+            </tr>
+        </table>
 
         <table id="seatsBlock">
             @for (int i = 1; i <= (int)TempData["NoOfSeats"]; i = i + 12)
@@ -72,21 +79,33 @@
                 <tr>
                     @for (int j = i; j <= i + 11; j++)
                     {
+                        foreach (var seat in ViewBag.Seats)
+                        {
+                            if (@seat.SeatNo == j)
+                            {
+                            }
+                        }
                         if (j == ((int)TempData["NoOfSeats"] + 1))
                         {
                             break;
                         }
-                        if (j % 4 == 0)
+
+                        else if (j % 4 == 0)
                         {
+                            // <td><input type="checkbox" class="sideSeats" value="@j" disabled style="color: red" /></td>
+
                             <td><input type="checkbox" class="sideSeats" value="@j" /> </td>
+                            //}
+
                             <td>------></td>
                         }
                         else
                         {
                             <td><input type="checkbox" class="seats" value="@j" /> </td>
                         }
-
                     }
+
+                    
 
                 </tr>
             }
@@ -133,7 +152,7 @@
         //allNumberVals.push($("#Numseats").val());
         $('#seatsBlock :checked').each(function () {
             allSeatsVals.push($(this).val());
-            
+
         });
 
         //Displaying

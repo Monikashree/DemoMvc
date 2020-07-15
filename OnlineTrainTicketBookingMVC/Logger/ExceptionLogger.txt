@@ -85,3 +85,45 @@ Parameter name: parameters ---> 13-05-2020 09:11:32 PM
 TicketBooking ---> AddPassenger ---> The parameters dictionary contains a null entry for parameter 'trainNo' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult AddPassenger(Int32, System.String)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
 Parameter name: parameters ---> 13-05-2020 09:11:57 PM
 User ---> ViewProfile ---> Object reference not set to an instance of an object. ---> 13-07-2020 11:05:05 PM
+TicketBooking ---> AddPassenger ---> The model item passed into the dictionary is of type 'OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel', but this dictionary requires a model item of type 'System.Tuple`2[OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel,System.Collections.Generic.IEnumerable`1[OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel]]'. ---> 14-07-2020 02:51:29 AM
+TicketBooking ---> AddPassenger ---> Object reference not set to an instance of an object. ---> 14-07-2020 02:52:15 AM
+TicketBooking ---> AddPassenger ---> The model item passed into the dictionary is of type 'OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel', but this dictionary requires a model item of type 'System.Tuple`2[OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel,System.Collections.Generic.IEnumerable`1[OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel]]'. ---> 14-07-2020 03:01:53 AM
+TicketBooking ---> BookTicket ---> The parameters dictionary contains a null entry for parameter 't_Id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult BookTicket(Int32, Int32, Int32, System.String, Int32, Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters ---> 14-07-2020 03:10:02 AM
+TicketBooking ---> AddPassenger ---> Object reference not set to an instance of an object. ---> 14-07-2020 03:58:13 AM
+TicketBooking ---> AddPassenger ---> Object reference not set to an instance of an object. ---> 14-07-2020 04:06:56 AM
+TicketBooking ---> AddPassenger ---> Object reference not set to an instance of an object. ---> 14-07-2020 04:13:38 AM
+TicketBooking ---> ClearSeats ---> The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult ClearSeats(Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters ---> 14-07-2020 05:01:01 AM
+TicketBooking ---> ClearSeats ---> The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult ClearSeats(Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters ---> 14-07-2020 05:06:41 AM
+TicketBooking ---> ClearSeats ---> The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult ClearSeats(Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters ---> 14-07-2020 05:08:02 AM
+TicketBooking ---> ClearSeats ---> The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult ClearSeats(Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters ---> 14-07-2020 05:08:17 AM
+FindTrain ---> DisplayTrainDetails ---> Error mapping types.
+
+Mapping types:
+TrainDetails -> TrainDetailsViewModel
+OnlineTrainTicketBookingApp.Entity.TrainDetails -> OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel
+
+Type Map configuration:
+TrainDetails -> TrainDetailsViewModel
+OnlineTrainTicketBookingApp.Entity.TrainDetails -> OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel
+
+Property:
+TrainClassDetails ---> 14-07-2020 09:51:37 AM
+FindTrain ---> DisplayTrainDetails ---> Error mapping types.
+
+Mapping types:
+TrainDetails -> TrainDetailsViewModel
+OnlineTrainTicketBookingApp.Entity.TrainDetails -> OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel
+
+Type Map configuration:
+TrainDetails -> TrainDetailsViewModel
+OnlineTrainTicketBookingApp.Entity.TrainDetails -> OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel
+
+Property:
+TrainClassDetails ---> 14-07-2020 09:57:52 AM
+TicketBooking ---> BookTicket ---> The parameters dictionary contains a null entry for parameter 't_Id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult BookTicket(Int32, Int32, Int32, System.String, Int32, Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters ---> 14-07-2020 10:00:47 AM

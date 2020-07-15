@@ -17,5 +17,10 @@ namespace OnlineTrainTicketBookingMVC.Models
         public string ClassName { get; set; }
 
         public IList<TrainClassDetailsViewModel> TrainClassDetails { get; set; }
+
+         TrainClassViewModel()
+        {
+
+        }
     }
 }
