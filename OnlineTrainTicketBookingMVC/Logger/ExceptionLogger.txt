@@ -127,3 +127,5 @@ Property:
 TrainClassDetails ---> 14-07-2020 09:57:52 AM
 TicketBooking ---> BookTicket ---> The parameters dictionary contains a null entry for parameter 't_Id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult BookTicket(Int32, Int32, Int32, System.String, Int32, Int32)' in 'OnlineTrainTicketBookingMVC.Controllers.TicketBookingController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
 Parameter name: parameters ---> 14-07-2020 10:00:47 AM
+Home ---> Index ---> The if block is missing a closing "}" character.  Make sure you have a matching "}" character for all the "{" characters within this block, and that none of the "}" characters are being interpreted as markup.
+ ---> 27-08-2020 11:44:50 AM

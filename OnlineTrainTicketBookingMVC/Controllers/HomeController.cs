@@ -83,8 +83,8 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     bool status = userBL.AddUserDetails(user);
                     if (status == false)
                         TempData["Message"] = "Please Try Again";
-                    TempData["Message"] = "Registration Successfull";
-                    return RedirectToAction("Index");
+                    TempData["Message"] = "Registration Successfull..Plz Sign In to Continue";
+                    return RedirectToAction("HomePage");
                 }
                 return View();
             //}

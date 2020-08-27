@@ -6,6 +6,15 @@
 
 <h1 class="homeContent">Bon Voyage</h1>
 <h2 class="homeContent">Pack ur suit...start your journey here</h2>
+@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+        //window.onload = function () {
+            alert("@TempData["Message"]");
+        //    window.location.href = '/Home/SignIn';
+        //};
+    </script>
+}
 
 @using (Html.BeginForm("DisplayTrainDetails", "FindTrain"))
 {

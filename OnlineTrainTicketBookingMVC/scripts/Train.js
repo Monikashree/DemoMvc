@@ -44,3 +44,9 @@ $(":checkbox").click(function () {
     //    $(":checkbox").prop('disabled', false);
     //}
 });
+
+
+        window.onload = function AlertMessage () {
+            alert("@ViewBag.Msg");
+            window.location.href = '/Home/HomePage';
+        };

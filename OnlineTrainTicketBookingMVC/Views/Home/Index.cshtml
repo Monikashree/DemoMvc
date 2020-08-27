@@ -2,11 +2,19 @@
 
 @{
     ViewBag.Title = "Index";
-    
+
 }
 
-<div class="box"><h2>@TempData["Message"].ToString()</h2></div>
-
+@*<div class="box"><h2>@TempData["Message"].ToString()</h2></div>*@
+@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+        //window.onload = function () {
+            alert("@TempData["Message"]");
+        //    window.location.href = '/Home/SignIn';
+        //};
+    </script>
+}
 @*<table border="1">
     <tr>
         <td>Firstname
