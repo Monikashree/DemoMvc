@@ -52,6 +52,7 @@ textarea {
     color: blue; 
     text-shadow: 0 0 3px #8deff9;
     align-content:center;
+    margin-top: 0.5%;
     margin-bottom: 0.79%;
 }
 .option1{
@@ -59,6 +60,7 @@ textarea {
     text-shadow: 0 0 3px #8deff9;  
     margin-left: 55%;
     margin-bottom: 0.79%;
+    margin-top: 0.5%;
 }
 
 .text-center{
@@ -259,13 +261,20 @@ textarea {
 }
 
 .logo{
-    height:1.5%;
-    width:2%;
-    margin-left:0%;
-    color:black;
-    
+    height:3.5%;
+    width:2.5%; 
+   margin-top: 0.5%;
+   
 }
 
+.tag{
+    color: blue; 
+    text-shadow: 0 0 3px #8deff9;
+    align-content:center;
+    margin-top: 0.5%;
+    margin-bottom: 0.79%;
+    
+}
 .search{
      padding: 0.55% 1.5% 2.5%;
      float: right;
