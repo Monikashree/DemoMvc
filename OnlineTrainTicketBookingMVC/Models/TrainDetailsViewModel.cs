@@ -57,7 +57,7 @@ namespace OnlineTrainTicketBookingMVC.Models
 
         public IList<TrainClassDetailsViewModel> TrainClassDetails { get; set; }    //One to may relationship
 
-        TrainDetailsViewModel()
+        public TrainDetailsViewModel()
         {
 
         }

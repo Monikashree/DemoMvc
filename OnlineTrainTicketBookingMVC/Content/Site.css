@@ -300,6 +300,18 @@ input[type=checkbox]:before {
     background-color: #ffffff;
 }
 
+input[type=checkbox]:disabled:after{    
+      
+        content: "X";
+        text-indent: 0;
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        transform: translate(-50%, 0%);      
+      
+    
+ }
+
 input[type=checkbox]:checked:before {
     background-color: Green;
     font-size: 15px;

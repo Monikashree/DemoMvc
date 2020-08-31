@@ -4,10 +4,14 @@
     ViewBag.Title = "DisplayTrainDetails";
 }
 
+@if (TempData["JourneyDate"] != null)
+{
+    TempData.Keep("JourneyDate");
+}
 <centre>
     <table class="box" border="1">
         <tr><td><h2>Train Details</h2></td></tr>
-
+       
         <tr>
             <th>@Html.DisplayNameFor(Model => Model.TrainNo)</th>
             <th>@Html.DisplayNameFor(Model => Model.TrainName)</th>

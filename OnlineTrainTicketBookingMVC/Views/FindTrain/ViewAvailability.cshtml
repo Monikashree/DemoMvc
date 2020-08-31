@@ -13,6 +13,7 @@
         <th>Train Name</th>
         <th>Class Name</th>
         <th>Seats</th>
+        <th>Available Seats</th>
         <th>Cost</th>
     </tr>
     @*<tr>
@@ -30,6 +31,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Classes.Seats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.LastOrDefault().AvailableSeats)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Classes.Cost)

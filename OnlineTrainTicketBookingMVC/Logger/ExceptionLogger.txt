@@ -129,3 +129,10 @@ TicketBooking ---> BookTicket ---> The parameters dictionary contains a null ent
 Parameter name: parameters ---> 14-07-2020 10:00:47 AM
 Home ---> Index ---> The if block is missing a closing "}" character.  Make sure you have a matching "}" character for all the "{" characters within this block, and that none of the "}" characters are being interpreted as markup.
  ---> 27-08-2020 11:44:50 AM
+FindTrain ---> ViewAvailability ---> Cannot convert null to 'int' because it is a non-nullable value type ---> 30-08-2020 01:05:47 PM
+FindTrain ---> ViewAvailability ---> Cannot convert null to 'int' because it is a non-nullable value type ---> 30-08-2020 01:13:17 PM
+TrainDetails ---> EditTrainDetails ---> No parameterless constructor defined for this object. Object type 'OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel'. ---> 30-08-2020 02:14:11 PM
+TrainDetails ---> EditTrainDetails ---> No parameterless constructor defined for this object. Object type 'OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel'. ---> 30-08-2020 02:14:35 PM
+TrainDetails ---> Create ---> No parameterless constructor defined for this object. Object type 'OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel'. ---> 30-08-2020 02:20:47 PM
+FindTrain ---> ViewAvailability ---> Object reference not set to an instance of an object. ---> 30-08-2020 02:55:10 PM
+FindTrain ---> ViewAvailability ---> Object reference not set to an instance of an object. ---> 30-08-2020 05:42:44 PM

@@ -59,7 +59,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             return RedirectToAction("BookTicket");
         }
 
-        ///public ActionResult AddPassenger(int trainNo, string className)
+       
         public ActionResult AddPassenger()
         {
             //TempData["TrainNo"] = trainNo;

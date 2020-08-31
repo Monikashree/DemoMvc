@@ -28,6 +28,8 @@ namespace OnlineTrainTicketBookingMVC.Models
         [Range(100, 2000, ErrorMessage = "Please enter valid Cost")]
         public int Cost { get; set; }
 
+        public int AvailableSeats { get; set; }
+
         public TrainClassDetailsViewModel()
         {
 
