@@ -265,8 +265,18 @@ textarea {
     width: 2.5%; 
    margin-top: 0.5%;
    margin-left: 2%;
+    /*font-size: 14px;
+    margin-right: 25px;
+    min-width: 120px;
+    display: flex;*/
    
 }
+
+/*.chHeaderContainer .chMmtLogo {
+    width: 1%;
+    height: 1%;
+    display: inline-block;
+}*/
 
 .tag{
     color: blue; 
@@ -345,3 +355,10 @@ input[type=checkbox]:checked:before {
     margin-top : 2em;
 }
 
+/*.chHeaderContainer {
+    width: 12px;
+    margin: 0 auto;
+    padding: 10px 0 12px;
+    display: flex;
+    
+}*/
