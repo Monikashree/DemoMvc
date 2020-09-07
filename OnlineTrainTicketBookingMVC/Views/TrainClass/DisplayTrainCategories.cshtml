@@ -44,12 +44,20 @@
                 @Html.DisplayFor(modelItem => data.Cost)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditTrainClass", new { id = data.TrainClassDetailsId })
-                @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId }, new { Onclick = "return confirm('Do you need to delete this data ?')" })
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "EditTrainClass", new { id = data.TrainClassDetailsId })
+                    @Html.ActionLink("Delete", "DeleteTrainClass", new { id = data.TrainClassDetailsId }, new { Onclick = "return confirm('Do you need to delete this data ?')" })
+                }
             </td>
         </tr>
     }
     <tr>
-        <td> @Html.ActionLink("Save", "DisplayTrainDetails", "TrainDetails")</td>
+        <td>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            { 
+                @Html.ActionLink("Save", "DisplayTrainDetails", "TrainDetails")
+            }
+        </td>
     </tr>
 </table>

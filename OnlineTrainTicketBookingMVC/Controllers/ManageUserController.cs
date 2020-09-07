@@ -9,11 +9,11 @@ namespace OnlineTrainTicketBookingMVC.Controllers
     {
         // GET: ManageUser
         IUserBL userBL;
-        public ManageUserController()
+        public ManageUserController()   //Invoke user BL
         {
             userBL = new UserBL();
         }
-        public ActionResult BlockedUser()
+        public ActionResult BlockedUser()   //Allow admin to block user
         {
             IEnumerable<User> blockedUserList = userBL.GetBlockedUserDetails();
             List<UserViewModel> userViewModelList = new List<UserViewModel>();
@@ -25,7 +25,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             }
             return View("DisplayUser",userViewModelList);
         }
-        public ActionResult DisplayUser()
+        public ActionResult DisplayUser()   //Display User
         {
             IEnumerable<User> userDetailsList = userBL.GetUserDetails();
             List<UserViewModel> userViewModelList = new List<UserViewModel>();

@@ -23,8 +23,8 @@
         <tr>
             <td>@Html.LabelFor(Model => Model.ClassId)</td>
             <td>
-               @Html.DropDownListFor(Model => Model.ClassId, (List<SelectListItem>)ViewBag.classes, "--Select Class--")
-               @Html.ValidationMessageFor(Model => Model.ClassId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(Model => Model.ClassId, (List<SelectListItem>)ViewBag.classes, "--Select Class--")
+                @Html.ValidationMessageFor(Model => Model.ClassId, "", new { @class = "text-danger" })
             </td>
         </tr>
         <tr>
@@ -44,9 +44,16 @@
         <tr>
             <td><input type="submit" value="Add" id="btnSubmit" class="btn"></td>
         </tr>
-        <tr><td>@Html.ActionLink("Back to List", "DisplayTrainCategories")</td></tr>
+        <tr>
+            <td>
+                @if (HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Back to List", "DisplayTrainCategories")
+                }
+            </td>
+        </tr>
     </table>
 }
 @*<div>
-    @Html.ActionLink("Back to List", "DisplayTrainCategories")
-</div>*@
+        @Html.ActionLink("Back to List", "DisplayTrainCategories")
+    </div>*@

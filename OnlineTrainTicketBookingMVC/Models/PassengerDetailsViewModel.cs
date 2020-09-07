@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
-    public class PassengerDetailsViewModel
+    public class PassengerDetailsViewModel              //Attributes of passenger details with key constraints
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

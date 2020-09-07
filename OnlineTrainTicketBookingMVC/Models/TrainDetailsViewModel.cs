@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineTrainTicketBookingMVC.Models
 {
     
-    public class TrainDetailsViewModel          //Entity attributes with regex and Display name
+    public class TrainDetailsViewModel          //View model attributes with regex and Display name
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

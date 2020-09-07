@@ -57,7 +57,11 @@
                     @Html.DisplayFor(modelItem => data.IsActive)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = data.UserId })
+                    @if (HttpContext.Current.User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = data.UserId })
+                    }
+
                     @*@Html.ActionLink("Delete", "DeleteTrainDetails", new { id = data.UserId }, new { Onclick = "return confirm('Do you need to delete this data ?')" })*@
                 </td>
             </tr>

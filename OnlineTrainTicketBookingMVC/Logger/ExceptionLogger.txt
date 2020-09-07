@@ -136,3 +136,4 @@ TrainDetails ---> EditTrainDetails ---> No parameterless constructor defined for
 TrainDetails ---> Create ---> No parameterless constructor defined for this object. Object type 'OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel'. ---> 30-08-2020 02:20:47 PM
 FindTrain ---> ViewAvailability ---> Object reference not set to an instance of an object. ---> 30-08-2020 02:55:10 PM
 FindTrain ---> ViewAvailability ---> Object reference not set to an instance of an object. ---> 30-08-2020 05:42:44 PM
+TicketBooking ---> AddPassenger ---> The provided anti-forgery token was meant for user "Lalitha", but the current user is "". ---> 06-09-2020 08:35:40 PM

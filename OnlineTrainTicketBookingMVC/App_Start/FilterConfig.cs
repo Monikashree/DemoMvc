@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace OnlineTrainTicketBookingMVC.App_Start
 {
-    public class FilterConfig
+    public class FilterConfig                           //Class to log every exception in a txt file (ExceptionLogger.txt)
     {
         //public static void RegisterActionFilters(GlobalFilterCollection globalFilterCollection)
         //{

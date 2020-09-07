@@ -33,34 +33,34 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             //return View(trainDetailsViewModelList);
         }
 
-        public ActionResult FindTrainByStation()
+        public ActionResult FindTrainByStation()            //Action to find train based on sorce and destination
         {
             return View();
         }
 
 
-        public ActionResult DisplayTrainDetails(SearchTrainViewModel searchTrainViewModel)
+        public ActionResult DisplayTrainDetails(SearchTrainViewModel searchTrainViewModel)  //based on search result displaying train
         {
             TempData["JourneyDate"] = searchTrainViewModel.JourneyDate;
-            List<TrainDetails> trainDetailsList = trainDetailsBL.SearchTrain(searchTrainViewModel.Source, searchTrainViewModel.Destination);
+            List<TrainDetails> trainDetailsList = trainDetailsBL.SearchTrain(searchTrainViewModel.Source, searchTrainViewModel.Destination);    //fetching train details list based in search result
             List<TrainDetailsViewModel> trainDetailsViewModelList = new List<TrainDetailsViewModel>();
             //IEnumerable<TrainDetails> trainList = TrainDetailsBL.GetTrainDetails();       //Displaying Train Details
             foreach (TrainDetails train in trainDetailsList)
             {
-                TrainDetailsViewModel trainDetailsViewModel = AutoMapper.Mapper.Map<TrainDetails, TrainDetailsViewModel>(train);
+                TrainDetailsViewModel trainDetailsViewModel = AutoMapper.Mapper.Map<TrainDetails, TrainDetailsViewModel>(train);    //Automapping of objects
                 trainDetailsViewModelList.Add(trainDetailsViewModel);
             }
             return View(trainDetailsViewModelList);
         }
 
-        public ActionResult ViewAvailability(int id)
+        public ActionResult ViewAvailability(int id)        //Based on train id showing class and seat details
         {
-            List<TicketBooking> ticketBooking = ticketBookingBL.GetBookingDetailsByIdandDOJ(id, (System.DateTime)TempData["JourneyDate"]);
+            List<TicketBooking> ticketBooking = ticketBookingBL.GetBookingDetailsByIdandDOJ(id, (System.DateTime)TempData["JourneyDate"]);  //Get already booked details based on train id and DOJ
 
-            List<TrainClassDetails> train = trainDetailsBL.GetSeatDetailsById(id);
+            List<TrainClassDetails> train = trainDetailsBL.GetSeatDetailsById(id);          //Get trainclassdetails based on train id
             List<TrainClassDetailsViewModel> trainClassDetailsViewModelList = new List<TrainClassDetailsViewModel>();
             //IEnumerable<TrainDetails> trainList = TrainDetailsBL.GetTrainDetails();       //Displaying Train Details
-            if (ticketBooking.Count == 0)
+            if (ticketBooking.Count == 0)               //If there is no booking on that particular date this condition will works
             {
                 foreach (TrainClassDetails trains in train)
                 {
@@ -71,7 +71,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     trainClassDetailsViewModelList.Add(trainClassDetailsViewModel);
                 }
             }
-            else
+            else        //if there is any booking on that date this part will  works
             {
 
                 foreach (TrainClassDetails trains in train)
@@ -81,7 +81,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                     {
                         if (details.ClassId == trains.ClassId)
                         {
-                            int count = ticketBookingBL.GetPassengerCountByID(details.BookingId);
+                            int count = ticketBookingBL.GetPassengerCountByID(details.BookingId);   //get count of passengers with seat number not equal to 0
                             if (count != 0)
                                 trainClassDetailsViewModel.AvailableSeats = trains.Seats - count;
                             break;
@@ -99,12 +99,12 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             return View(trainClassDetailsViewModelList);
         }
 
-        [HttpPost]
-        public ActionResult ViewAvailability(TrainClassDetails trainClassDetails)
-        {
-            TempData["TrainId"] = trainClassDetails.TrainId;
-            return RedirectToAction("BookTrain", "Booking");
-        }
+        //[HttpPost]
+        //public ActionResult ViewAvailability(TrainClassDetails trainClassDetails)       
+        //{
+        //    TempData["TrainId"] = trainClassDetails.TrainId;
+        //    return RedirectToAction("BookTrain", "Booking");
+        //}
 
     }
 }

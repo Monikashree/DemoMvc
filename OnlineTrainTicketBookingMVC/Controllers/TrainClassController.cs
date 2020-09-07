@@ -11,7 +11,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
     {
         // GET: TrainClass
         ITrainClassBL trainClassBL;
-        public TrainClassController()
+        public TrainClassController()       //Constructor to invoke train class BL
         {
             trainClassBL = new TrainClassBL();
         }
@@ -19,7 +19,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         {
             return View();
         }   
-        public ActionResult AddClass()
+        public ActionResult AddClass()  //Adding classes
         {
             return View();
         }
@@ -56,7 +56,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
         public ActionResult DisplayTrainCategories()
         {
-            List<TrainClassDetails> trainClassList = trainClassBL.GetTrainClass(Convert.ToInt32(TempData["TrainId"]));
+            List<TrainClassDetails> trainClassList = trainClassBL.GetTrainClass(Convert.ToInt32(TempData["TrainId"]));  
             List<TrainClassDetailsViewModel> trainClassDetailsViewModelList = new List<TrainClassDetailsViewModel>();
             foreach (TrainClassDetails classes in trainClassList)
             {                                                                           //Display Train Class Details

@@ -4,6 +4,7 @@
     ViewBag.Title = "AddClass";
     //Layout = "~/Views/Shared/_AdminPage.cshtml";
 }
+
 @if (TempData["Message"] == null)
 {
     TempData["Message"] = "";
@@ -28,7 +29,12 @@
         <tr><td><h2>@TempData["Message"].ToString()</h2></td></tr>
         <tr><td><input type="submit" value="Add" id="btnSubmit" class="btn"></td></tr>
         <tr>
-            <td>@Html.ActionLink("Back to List", "DisplayClass")</td>
+            <td>
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Back to List", "DisplayClass")
+            }
+                </td>
         </tr>
         </table>
 }

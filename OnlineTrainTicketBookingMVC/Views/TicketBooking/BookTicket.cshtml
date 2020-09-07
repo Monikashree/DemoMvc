@@ -4,6 +4,7 @@
     ViewBag.Title = "BookTicket";
 }
 
+
 @if(TempData["C_Name"] != null)
 {
     TempData.Keep("C_Name");
@@ -12,9 +13,11 @@
     TempData.Keep("T_No");
     TempData.Keep("T_Id");
     TempData.Keep("C_Id");
+    TempData.Keep("Doj");
 }
 @using (Html.BeginForm("BookTicket", "TicketBooking", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table class="box">
         <tr><td><h2>BookTicket</h2></td></tr>
         <tr>
@@ -35,8 +38,9 @@
         <tr>
             <td>Journey Date</td>
             <td>
-                @Html.TextBoxFor(Model => Model.JourneyDate@*, new { @type = "date"}*@)
-                @Html.ValidationMessageFor(M => M.JourneyDate, "", new { @class = "validationMsg" })
+                @TempData["Doj"].ToString()
+                @*@Html.TextBoxFor(Model => Model.JourneyDate)
+                @Html.ValidationMessageFor(M => M.JourneyDate, "", new { @class = "validationMsg" })*@
             </td>
         </tr>
         <tr><td><input type="submit" value="AddPassenger" id="btnSubmit" class="btn"></td></tr>

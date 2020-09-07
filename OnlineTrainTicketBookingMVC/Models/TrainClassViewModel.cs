@@ -7,7 +7,7 @@ namespace OnlineTrainTicketBookingMVC.Models
     public class TrainClassViewModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]       // An entity with regex for Class details
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]       // An view model with regex for Class details
         public int ClassId { get; set; }
 
         [Required]

@@ -1,8 +1,8 @@
-﻿@*@model  Tuple<OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel, IEnumerable<OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel>>*@
-@model OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel
+﻿@model OnlineTrainTicketBookingMVC.Models.PassengerDetailsViewModel
 @{
     ViewBag.Title = "AddPassenger";
 }
+
 @if (TempData["BookingId"] != null)
 {
     TempData.Keep("TrainNo");
@@ -11,12 +11,12 @@
     TempData.Keep("BookingId");
     TempData.Keep("T_Id");
     TempData.Keep("C_Id");
+    TempData.Keep("Doj");
     //TempData.Keep("Seats");
 }
 <link rel="stylesheet" href="~/Content/Site.css" />
 <script src="~/scripts/Train.js"></script>
 <script src="~/scripts/jquery-2.2.3.min.js"></script>
-
 @using (Html.BeginForm("AddPassenger", "TicketBooking", FormMethod.Post))
 {
 

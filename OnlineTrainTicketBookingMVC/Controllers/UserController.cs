@@ -14,14 +14,14 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             userBL = new UserBL();
         }
        
-        public ActionResult ViewProfile()
+        public ActionResult ViewProfile()       //Allow user to view their profile
         {
             //int id = (int)TempData["Message"];            
             User user = userBL.GetUserById(Convert.ToInt32(Session["UserId"]));
             UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
             return View(userViewModel);
         }
-        public ActionResult EditProfile()
+        public ActionResult EditProfile()           //Allow users to edit or update their profiles
         {
             User user = userBL.GetUserById(Convert.ToInt32(Session["UserId"]));
             UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);
@@ -44,7 +44,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             //TempData["Message"] = userViewModel.UserId;
             //return View();
         }
-        public ActionResult ChangePassword()
+        public ActionResult ChangePassword()            //allow users to change their password
         {
             User user = userBL.GetUserById(Convert.ToInt32(Session["UserId"]));
             UserViewModel userViewModel = AutoMapper.Mapper.Map<User, UserViewModel>(user);

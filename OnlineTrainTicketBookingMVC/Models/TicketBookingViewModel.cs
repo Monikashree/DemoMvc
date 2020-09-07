@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
-    public class TicketBookingViewModel
+    public class TicketBookingViewModel     //Attributes of Ticket booking with key constraints
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

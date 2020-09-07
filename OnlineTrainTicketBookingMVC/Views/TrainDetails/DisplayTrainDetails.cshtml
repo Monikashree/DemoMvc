@@ -56,9 +56,13 @@
                     @Html.DisplayFor(modelItem => data.PerKMCost)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditTrainDetails", new {TrainId = data.TrainId})
-                    @Html.ActionLink("Delete", "DeleteTrainDetails", new { TrainId = data.TrainId },
-                     new { Onclick="return confirm('Do you need to delete this data ?')"})
+                    @if (HttpContext.Current.User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "EditTrainDetails", new { TrainId = data.TrainId })
+                        @Html.ActionLink("Delete", "DeleteTrainDetails", new { TrainId = data.TrainId },
+                     new { Onclick = "return confirm('Do you need to delete this data ?')" })
+                    }
+                    
                 </td>
             </tr>
         }

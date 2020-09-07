@@ -12,12 +12,12 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         // private TrainTicketBookingDbContext db = new TrainTicketBookingDbContext();
         //TrainDetailsRepository trainDetailsRepository = new TrainDetailsRepository();
         ITrainDetailsBL trainDetailsBL;
-        public TrainDetailsController()
+        public TrainDetailsController()         //constructor which invokes train details BL
         {
             trainDetailsBL = new TrainDetailsBL();
         }
 
-        public ActionResult Index()
+        public ActionResult Index()         //Admin menu
         {
             return View();
         }
@@ -33,7 +33,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
             }
             return View(trainDetailsViewModelList);
         }
-        public ActionResult Create()
+        public ActionResult Create()        //create new train
         {
             //ViewBag.TrainClass = new SelectList(TrainClassRepository.GetClassDetails(), "ClassId", "ClassName");
             return View();           

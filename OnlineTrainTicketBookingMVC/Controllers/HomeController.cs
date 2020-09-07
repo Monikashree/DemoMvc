@@ -97,7 +97,7 @@ namespace OnlineTrainTicketBookingMVC.Controllers
         }
         [HttpGet]
         [ActionName("SignIn")]
-        public ActionResult SignIn_Get()
+        public ActionResult SignIn_Get()    //User sign in
         {
             return View();
         }

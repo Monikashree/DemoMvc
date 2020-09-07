@@ -6,6 +6,10 @@
 
 @*@using (Html.BeginForm("ViewAvailability", "FindTrain", FormMethod.Post))*@
 
+@if (TempData["JourneyDate"] != null)
+{
+    TempData.Keep("JourneyDate");
+}
 <table class="box" border="1">
     <tr><td><h2>ViewAvailability</h2></td></tr>
     <tr>
@@ -33,7 +37,7 @@
                 @Html.DisplayFor(modelItem => Classes.Seats)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => Model.LastOrDefault().AvailableSeats)
+                @Html.DisplayFor(modelItem => Model.First().AvailableSeats)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => Classes.Cost)

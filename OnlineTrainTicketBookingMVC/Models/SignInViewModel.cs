@@ -2,7 +2,7 @@
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
-    public class SignInViewModel            //An entity with Signin attributes 
+    public class SignInViewModel            //A view model with Signin attributes 
     {
         [Required(ErrorMessage = "UserName is required")]       
         public string UserName { get; set; }

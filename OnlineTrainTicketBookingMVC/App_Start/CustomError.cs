@@ -5,7 +5,7 @@ namespace OnlineTrainTicketBookingMVC.App_Start
 {
     public class CustomError : HandleErrorAttribute
     {
-        public override void OnException(ExceptionContext exceptionContext)
+        public override void OnException(ExceptionContext exceptionContext)         //Class to redirect exception to an error page
         {
             if (!exceptionContext.ExceptionHandled)
             {

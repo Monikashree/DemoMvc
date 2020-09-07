@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTrainTicketBookingMVC.Models
 {
-    public class SearchTrainViewModel
+    public class SearchTrainViewModel       //Attributes of search train with key constraints
     {
         [Required(ErrorMessage = "Source station is required")]
         [RegularExpression("^[A-Z][a-z]*", ErrorMessage = "Valid Charactors include (A-Z) (a-z)")]

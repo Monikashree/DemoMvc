@@ -7,8 +7,7 @@ namespace OnlineTrainTicketBookingMVC.Models
     public enum Status
     {
         Admin = 0,
-        User,
-        Block
+        User
     }
     public class UserViewModel                      //Properties of User with regex and display name
     {

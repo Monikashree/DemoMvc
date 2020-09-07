@@ -1,15 +1,11 @@
-﻿@*@model IEnumerable<OnlineTrainTicketBookingMVC.Models.TrainDetailsViewModel>*@
+﻿
 
-@{
+@*@{
     ViewBag.Title = "SearchTrain";
 }
 
 <h2>SearchTrain</h2>
 
-@*@using (Html.BeginForm("SearchTrain", "FindTrain", FormMethod.Post))
-    {
-
-    }*@
 <table class="box" border="1">
     <tr><td><h2>Train Details</h2></td></tr>
     <tr>
@@ -25,13 +21,12 @@
         <th>Departure Time</th>
         <th>Arrival Time</th>
         <th>Train KM</th>
-        @*<th>PerKMCost</th>*@
+      
     </tr>
     @foreach (var data in ViewBag.result)
     {
         <tr>
-            @*@data.TrainId)
-            @data.PerKMCost*@
+           
 
             <td>
                 @data.TrainNo
@@ -54,9 +49,7 @@
             <td>
                 @data.TrainKM
             </td>
-            @*<td>
-                @data.PerKMCost
-            </td>*@
+           
         </tr>
     }
 </table>
@@ -79,5 +72,5 @@
             }
         });
     });
-</script>
+</script>*@
 

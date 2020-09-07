@@ -3,7 +3,7 @@ using OnlineTrainTicketBookingMVC.Models;
 
 namespace OnlineTrainTicketBookingMVC.App_Start
 {
-    public class MappingConfig
+    public class MappingConfig                              //An automapper class to map the objects from view model to entity and vice versa
     {
         public static void RegisterMaps()
         {

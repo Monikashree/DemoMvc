@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace OnlineTrainTicketBookingMVC.App_Start
 {
-    public class CustomException : FilterAttribute, IExceptionFilter
+    public class CustomException : FilterAttribute, IExceptionFilter            //Class to redirect custom exception to an error page
     {
         public void OnException(ExceptionContext filterContext)
         {
