@@ -33,11 +33,11 @@
             
             
             @*<span class="logoContainer">*@
-            <img src="~/Images/Logo.png" class="logo" />@*</span>*@
+            @*<img src="~/Images/Logo.png" class="logo" />*@@*</span>*@
 
 
             @Html.ActionLink("Bon Voyage", "HomePage", "Home", "", new { @class = "tag" })
-            @*@Html.ActionLink("Home", "HomePage", "Home", "", new { @class = "option" })*@
+            @Html.ActionLink("Home", "HomePage", "Home", "", new { @class = "option" })
             @Html.ActionLink("SignUp", "SignUp", "Home", "", new { @class = "option" })
             @Html.ActionLink("Search", "FindTrainByStation", "FindTrain", "", new { @class = "option1" })
             @*@if (HttpContext.Current.User.Identity.IsAuthenticated)
