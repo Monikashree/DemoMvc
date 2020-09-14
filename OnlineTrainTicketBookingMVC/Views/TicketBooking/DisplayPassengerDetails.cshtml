@@ -55,9 +55,13 @@
                 <td>@Html.DisplayFor(modelItem => data.Cost)</td>
             </tr>
         }
+        @if((int)TempData["TotalCost"] != 0)
+        {
+            <tr><td>@TempData["TotalCost"].ToString()</td></tr>
+        }
         @if ((int)TempData["Count"] < (int)TempData["NOP"])
         {
-            <tr><td>@Html.ActionLink("Add Passenger", "AddPassenger", "TicketBooking")</td></tr>
+            <tr><td>Total Cost</td><td>@Html.ActionLink("Add Passenger", "AddPassenger", "TicketBooking")</td></tr>
         }
         @*, new { @trainNo = (int)TempData["TrainNo"], @className = TempData["ClassName"]}*@
         @*<tr><td><input type='button' value='Proceed to Pay' id='myButton'  class="btn" onClick='redirectOnClick(TempData["BookingId"])' /></td></tr>*@

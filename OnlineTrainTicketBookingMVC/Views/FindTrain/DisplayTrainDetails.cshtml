@@ -8,8 +8,9 @@
 {
     TempData.Keep("JourneyDate");
 }
+
 <centre>
-    <table class="box" border="1">
+    @*<table class="box" border="1">
         <tr><td><h2>Train Details</h2></td></tr>
        
         <tr>
@@ -22,9 +23,10 @@
             <th>@Html.DisplayNameFor(Model => Model.TrainKM)</th>
 
         </tr>
+        </table>*@
         @foreach (var data in Model)
         {
-            <tr>
+            @*<tr>
                 @Html.HiddenFor(modelItem => data.TrainId)
                 @Html.HiddenFor(modelItem => data.PerKMCost)
                 <td>
@@ -50,10 +52,54 @@
                 </td>
                
                 <td>
-                    @Html.ActionLink("ViewAvailability", "ViewAvailability", new { id = data.TrainId })                   
+                    @Html.ActionLink("CheckAvailability & Fare", "ViewAvailability", new { id = data.TrainId })                   
                 </td>
-            </tr>
+            </tr>*@
+
+            @*<div class="box">*@
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-xs-12">
+                            <div>
+                                <h2><span>@Html.DisplayFor(modelItem => data.TrainName)</span></h2> <h4>( @Html.DisplayFor(modelItem => data.TrainNo) )</h4>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <span>@Html.DisplayFor(modelItem => data.SourceStation)----------><span class="glyphicon glyphicon-arrow-right">@Html.DisplayFor(modelItem => data.DestinationStation)</span></span>
+                            </div>
+                            <div>
+                                <span>Departs on : All Days</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 8%">
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span>
+                                <img src="~/Images/Day.png" class="day" />
+                            </span>
+                            <h5>@Html.DisplayFor(modelItem => data.DepartureTime)</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span>
+                                <img src="~/Images/Day.png" class="day" />
+                            </span>
+                            <h5>@Html.DisplayFor(modelItem => data.ArrivalTime)</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span>
+                                <img src="~/Images/Timer.png" class="day" />
+                            </span>
+                            <h5>@Html.DisplayFor(modelItem => data.TrainKM)</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+                        @Html.ActionLink("CheckAvailability & Fare", "ViewAvailability", new { id = data.TrainId })
+                    </div>
+                </div>
+            @*</div>*@
+
         }
-    </table>
+    @*</table>*@
 </centre>
 

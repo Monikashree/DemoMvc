@@ -111,6 +111,11 @@ namespace OnlineTrainTicketBookingMVC.Controllers
                 PassengerDetailsViewModel passengerDetailsViewModel = AutoMapper.Mapper.Map<PassengerDetails, PassengerDetailsViewModel>(details);
                 passengerViewModelList.Add(passengerDetailsViewModel);
             }
+            if((int)TempData["NOP"] == (int)TempData["Count"])
+            {
+                int totalMoney = ticketBookingBL.GetTotalCost(Convert.ToInt32(TempData["BookingId"]));
+                TempData["TotalCost"] = totalMoney;
+            }
             return View(passengerViewModelList);
         }
         [HttpPost]

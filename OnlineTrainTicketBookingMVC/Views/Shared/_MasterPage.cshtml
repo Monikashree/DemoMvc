@@ -16,16 +16,18 @@
         <div class="container">
             <div class="header">
                
-                    @*<marquee>*@
+                    <marquee>
                     
                         <span>
-
-                            HAPPY JOURNEY!!!
-                            <span style="margin-left:66%">Contact us on </span>
+                            @*<span>*@
+                                <picture><img src="~/Images/Logo.png" class="logo" /></picture>
+                                @DateTime.UtcNow.ToLongDateString()
+                            @*</span>*@
+                            <span class="date" @*style="margin-left:55%"*@>Contact us on </span>
                             <img src="~/Images/insta.jpg" class="img1 optn" onclick="imageClick('https://www.instagram.com/accounts/login/')" />
                             <img src="~/Images/fb.jpg" class="img2 optn" onclick="imageClick('https://www.facebook.com/')" />
                             <img src="~/Images/twitter.png" class="img3 optn" onclick="imageClick('https://twitter.com/search?q=%2523homepage')" />
-                        </span>@*</marquee>*@
+                        </span></marquee>
                    
                 
             </div>
@@ -35,72 +37,72 @@
             @*<span class="logoContainer">*@
             @*<img src="~/Images/Logo.png" class="logo" />*@@*</span>*@
 
+            
+                @*<span><picture><img src="~/Images/Logo.png" class="logo" /></picture></span>*@
+                @Html.ActionLink("Bon Voyage", "HomePage", "Home", "", new { @class = "tag" })
+                @Html.ActionLink("Home", "HomePage", "Home", "", new { @class = "option" })
+                @Html.ActionLink("SignUp", "SignUp", "Home", "", new { @class = "option" })
+                @Html.ActionLink("Search", "FindTrainByStation", "FindTrain", "", new { @class = "option1" })
+                @*@if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Hello" +@User.Identity.Name.ToString(), "ViewProfile", "User", "", new { @class = "option1" })
+                @Html.ActionLink("SignOut", "SignOut", "Home", "", new { @class = "option" })
 
-            @Html.ActionLink("Bon Voyage", "HomePage", "Home", "", new { @class = "tag" })
-            @Html.ActionLink("Home", "HomePage", "Home", "", new { @class = "option" })
-            @Html.ActionLink("SignUp", "SignUp", "Home", "", new { @class = "option" })
-            @Html.ActionLink("Search", "FindTrainByStation", "FindTrain", "", new { @class = "option1" })
-            @*@if (HttpContext.Current.User.Identity.IsAuthenticated)
+            }*@
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            @User.Identity.Name.ToString()
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Profile", "ViewProfile", "User")
+                            @Html.ActionLink("SignOut", "SignOut", "Home")
+
+                            @*<a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>*@
+                        </div>
+                    </div>
+                }
+
+                else
                 {
-                    @Html.ActionLink("Hello" +@User.Identity.Name.ToString(), "ViewProfile", "User", "", new { @class = "option1" })
-                    @Html.ActionLink("SignOut", "SignOut", "Home", "", new { @class = "option" })
+                    @Html.ActionLink("SignIn", "SignIn", "Home", "", new { @class = "option" })
+                }
 
-                }*@
-            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+
+                @if (HttpContext.Current.User.IsInRole("Admin"))
             {
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        @User.Identity.Name.ToString()
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        @Html.ActionLink("Profile", "ViewProfile", "User")
-                        @Html.ActionLink("SignOut", "SignOut", "Home")
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Admin
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Manage User", "DisplayUser", "ManageUser")
+                            @Html.ActionLink("Manage Train", "DisplayTrainDetails", "TrainDetails")
+                            @Html.ActionLink("Add Train", "Create", "TrainDetails")
+                            @Html.ActionLink("Add Class", "AddClass", "TrainClass")
+                            @Html.ActionLink("BlockedUsers", "BlockedUser", "ManageUser")
 
-                        @*<a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>*@
+                            @*<a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>*@
+                        </div>
                     </div>
-                </div>
-            }
-
-            else
-            {
-                @Html.ActionLink("SignIn", "SignIn", "Home", "", new { @class = "option" })
-            }
-
-
-            @if (HttpContext.Current.User.IsInRole("Admin"))
-            {
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        Admin
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        @Html.ActionLink("Manage User", "DisplayUser", "ManageUser")
-                        @Html.ActionLink("Manage Train", "DisplayTrainDetails", "TrainDetails")
-                        @Html.ActionLink("Add Train", "Create", "TrainDetails")
-                        @Html.ActionLink("Add Class", "AddClass", "TrainClass")
-                        @Html.ActionLink("BlockedUsers", "BlockedUser", "ManageUser")
-
-                        @*<a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>*@
-                    </div>
-                </div>
                     @*@Html.ActionLink("Manage User", "DisplayUser", "ManageUser", "", new { @class = "option1" })
-                        @Html.ActionLink("Manage Train", "DisplayTrainDetails", "TrainDetails", "", new { @class = "option" })
-                        @Html.ActionLink("Add Train", "Create", "TrainDetails", "", new { @class = "option" })
-                        @Html.ActionLink("Add Class", "AddClass", "TrainClass", "", new { @class = "option" })*@
-            }
-            @if (HttpContext.Current.User.IsInRole("User"))
+                @Html.ActionLink("Manage Train", "DisplayTrainDetails", "TrainDetails", "", new { @class = "option" })
+                @Html.ActionLink("Add Train", "Create", "TrainDetails", "", new { @class = "option" })
+                @Html.ActionLink("Add Class", "AddClass", "TrainClass", "", new { @class = "option" })*@
+                }
+                @if (HttpContext.Current.User.IsInRole("User"))
             {
 
             }
 
-
-    
+            
                 
             </div>
         </div>

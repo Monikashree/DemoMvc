@@ -137,9 +137,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\bon.jpg" />
+    <Content Include="Images\Day.png" />
     <Content Include="Images\fb.jpg" />
     <Content Include="Images\insta.jpg" />
     <Content Include="Images\Logo.png" />
+    <Content Include="Images\Timer.png" />
     <Content Include="Images\Train.jpg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\Voyage.jpg" />
