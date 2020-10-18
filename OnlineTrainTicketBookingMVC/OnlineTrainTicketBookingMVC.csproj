@@ -262,9 +262,9 @@
       <Project>{ece1698e-7607-4f18-8362-10e8a36be86b}</Project>
       <Name>OnlineTrainTicketBookingApp.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBookingApp.Entity.csproj">
+    <ProjectReference Include="..\..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBooking.Entity.csproj">
       <Project>{f2d85c4d-216b-44c5-a34c-e8fadc8ce1ca}</Project>
-      <Name>OnlineTrainTicketBookingApp.Entity</Name>
+      <Name>OnlineTrainTicketBooking.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

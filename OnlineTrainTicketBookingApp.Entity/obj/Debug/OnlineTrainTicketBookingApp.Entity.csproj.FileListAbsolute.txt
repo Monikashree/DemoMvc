@@ -1,0 +1,5 @@
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\bin\Debug\OnlineTrainTicketBookingApp.Entity.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\bin\Debug\OnlineTrainTicketBookingApp.Entity.pdb
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\obj\Debug\OnlineTrainTicketBookingApp.Entity.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\obj\Debug\OnlineTrainTicketBookingApp.Entity.pdb
+C:\Users\ELCOT\documents\visual studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\obj\Debug\OnlineTrainTicketBookingApp.Entity.csprojResolveAssemblyReference.cache

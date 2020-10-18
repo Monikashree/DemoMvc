@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingMVC", "OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC.csproj", "{641F023E-5BF5-4F83-862E-A9B69C3FD37A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Entity", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBookingApp.Entity.csproj", "{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBooking.Entity", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBooking.Entity.csproj", "{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.DAL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.DAL\OnlineTrainTicketBookingApp.DAL.csproj", "{ECE1698E-7607-4F18-8362-10E8A36BE86B}"
 EndProject
