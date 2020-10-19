@@ -5,13 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingMVC", "OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC.csproj", "{641F023E-5BF5-4F83-862E-A9B69C3FD37A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBooking.Entity", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBooking.Entity.csproj", "{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.BL", "OnlineTrainTicketBookingApp.BL\OnlineTrainTicketBookingApp.BL.csproj", "{B0E31B60-60A3-47A8-A383-829FC1A9773E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.DAL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.DAL\OnlineTrainTicketBookingApp.DAL.csproj", "{ECE1698E-7607-4F18-8362-10E8A36BE86B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Common", "OnlineTrainTicketBookingApp.Common\OnlineTrainTicketBookingApp.Common.csproj", "{ABF51A61-EFC4-4328-ACEC-CB2150779F76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Common", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\OnlineTrainTicketBookingApp.Common.csproj", "{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.DAL", "OnlineTrainTicketBookingApp.DAL\OnlineTrainTicketBookingApp.DAL.csproj", "{C37AAD7E-0BFD-4D3B-8D44-894F2689A681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.BL", "..\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.BL\OnlineTrainTicketBookingApp.BL.csproj", "{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineTrainTicketBookingApp.Entity", "OnlineTrainTicketBookingApp.Entity\OnlineTrainTicketBookingApp.Entity.csproj", "{5D8D92E4-3662-4F01-893F-35CFB949615F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +23,22 @@ Global
 		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{641F023E-5BF5-4F83-862E-A9B69C3FD37A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2D85C4D-216B-44C5-A34C-E8FADC8CE1CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ECE1698E-7607-4F18-8362-10E8A36BE86B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{675FF5A5-6D21-4614-BDBC-EC6CC7431A78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31D14A4E-F773-4E8D-A77F-52DD0FAE7EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E31B60-60A3-47A8-A383-829FC1A9773E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E31B60-60A3-47A8-A383-829FC1A9773E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E31B60-60A3-47A8-A383-829FC1A9773E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E31B60-60A3-47A8-A383-829FC1A9773E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF51A61-EFC4-4328-ACEC-CB2150779F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF51A61-EFC4-4328-ACEC-CB2150779F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF51A61-EFC4-4328-ACEC-CB2150779F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF51A61-EFC4-4328-ACEC-CB2150779F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C37AAD7E-0BFD-4D3B-8D44-894F2689A681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C37AAD7E-0BFD-4D3B-8D44-894F2689A681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C37AAD7E-0BFD-4D3B-8D44-894F2689A681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C37AAD7E-0BFD-4D3B-8D44-894F2689A681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8D92E4-3662-4F01-893F-35CFB949615F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8D92E4-3662-4F01-893F-35CFB949615F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8D92E4-3662-4F01-893F-35CFB949615F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8D92E4-3662-4F01-893F-35CFB949615F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

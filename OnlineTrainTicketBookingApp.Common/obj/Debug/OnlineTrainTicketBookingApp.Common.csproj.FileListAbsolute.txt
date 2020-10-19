@@ -1,4 +1,9 @@
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\bin\Debug\OnlineTrainTicketBookingApp.Common.dll
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\bin\Debug\OnlineTrainTicketBookingApp.Common.pdb
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\obj\Debug\OnlineTrainTicketBookingApp.Common.dll
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingApp\OnlineTrainTicketBookingApp.Common\obj\Debug\OnlineTrainTicketBookingApp.Common.pdb
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\OnlineTrainTicketBookingApp.Common.dll.config
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\OnlineTrainTicketBookingApp.Common.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\OnlineTrainTicketBookingApp.Common.pdb
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\EntityFramework.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\EntityFramework.xml
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\obj\Debug\OnlineTrainTicketBookingApp.Common.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingApp.Common\obj\Debug\OnlineTrainTicketBookingApp.Common.pdb

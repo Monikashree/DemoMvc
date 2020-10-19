@@ -1,4 +1,5 @@
 ﻿using OnlineTrainTicketBookingApp.BL;
+using OnlineTrainTicketBookingApp.Entity;
 using OnlineTrainTicketBookingMVC.App_Start;
 using OnlineTrainTicketBookingMVC.Models;
 using System;

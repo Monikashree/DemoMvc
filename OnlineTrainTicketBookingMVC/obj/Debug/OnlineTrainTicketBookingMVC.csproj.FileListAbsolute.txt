@@ -27,8 +27,6 @@ C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.BL.dll
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.Common.dll
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.DAL.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.Entity.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Helpers.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Mvc.dll
@@ -36,9 +34,8 @@ C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Webpages.Deployment.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Webpages.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Webpages.Razor.dll
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.DAL.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.BL.pdb
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.Common.pdb
-C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.DAL.pdb
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.Entity.pdb
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\AutoMapper.xml
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\EntityFramework.xml
@@ -55,6 +52,7 @@ C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Webpages.Razor.xml
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Helpers.xml
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\System.Web.Mvc.xml
+C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\bin\OnlineTrainTicketBookingApp.DAL.pdb
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\obj\Debug\OnlineTrainTicketBookingMVC.csprojResolveAssemblyReference.cache
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\obj\Debug\OnlineTrainTicketBookingMVC.dll
 C:\Users\ELCOT\Documents\Visual Studio 2015\Projects\OnlineTrainTicketBookingMVC\OnlineTrainTicketBookingMVC\obj\Debug\OnlineTrainTicketBookingMVC.pdb

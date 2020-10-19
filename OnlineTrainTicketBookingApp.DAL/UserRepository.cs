@@ -1,14 +1,26 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
 using OnlineTrainTicketBookingApp.DAL;
 using System.Collections.Generic;
+using System.Linq;
+using System.Data.Entity;
+using OnlineTrainTicketBookingApp.Entity;
 
-
-namespace OnlineTrainTicketBooking
-{ 
-    public class UserRepository
+namespace OnlineTrainTicketBookingMVC
+{
+    public interface IUserRepository        // Interface for Repository
     {
+        bool AddUserDetails(User user);
+        User CheckLoginDetails(string name, string password);
+        User GetUserById(int id);
+        void BlockUser(User user);
+        List<User> GetUserDetails();
+        // User GetUserByName(string name);
+        bool UpdateProfile(User user);
+        List<User> GetBlockedUserDetails();
+    }
+    public class UserRepository : IUserRepository           //Implementatiion of interface
+    {
+
         //protected static List<User> userList = new List<User>();        //A static user list to store user details 
         //SqlConnection sqlConnection = DBUtils.GetDBConnection();
         //SqlConnection sqlConnection = Connectivity.EstablishConnection();
@@ -71,20 +83,96 @@ namespace OnlineTrainTicketBooking
         //}
 
 
-        static List<User> userDetails = new List<User>();
-        static UserRepository()
+        //static List<User> userDetails = new List<User>();
+        //static UserRepository()
+        //{
+        //    userDetails.Add(new User { FirstName = "Monika", LastName = "Kamaraj", Age = 21, Sex = "Female", Email = "monika@gmail.com", MobileNum = 8807697440, Password = "monika@@123", Status = (Role) Enum.Parse(typeof(Role), "Admin", true)});
+        //}
+
+
+
+        public bool AddUserDetails(User user)           //Adding user details
         {
-            userDetails.Add(new User { FirstName = "Monika", LastName = "Kamaraj", Age = 21, Sex = "Female", Email = "monika@gmail.com", MobileNum = 8807697440, Password = "monika@@123", Status = (Role) Enum.Parse(typeof(Role), "Admin", true)});
+            try
+            {
+                using (TrainTicketBookingDbContext userDataBase = new TrainTicketBookingDbContext())
+                {
+                    userDataBase.User.Add(user);
+                    userDataBase.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
-        public void AddUserDetails(User user)
+        public User CheckLoginDetails(string name, string password)     //Method to check signin details
         {
-            userDetails.Add(user);
-        }
-        public static IEnumerable<User> ShowDetails()
-        {
-            return userDetails;
+            using (TrainTicketBookingDbContext userDataBase = new TrainTicketBookingDbContext())
+            {
+                User user = userDataBase.User.Where(m => m.FirstName == name && m.Password == password).FirstOrDefault();
+                return user;
+            }
         }
 
+        public List<User> GetUserDetails()
+        {
+            List<User> user = new List<User>();
+            using (TrainTicketBookingDbContext userDataBase = new TrainTicketBookingDbContext())
+            {
+                user = userDataBase.User.ToList();
+            }
+            return user;
+        }
+
+        public User GetUserById(int id)                     //Method to get details by id
+        {
+            using (TrainTicketBookingDbContext dbContext = new TrainTicketBookingDbContext())
+            {
+                return dbContext.User.Find(id);
+            }
+        }
+        public void BlockUser(User user)                    // Method to block user
+        {
+            using (TrainTicketBookingDbContext dbContext = new TrainTicketBookingDbContext())
+            {
+                dbContext.Entry(user).State = EntityState.Modified;
+                dbContext.SaveChanges();
+            }
+        }
+        //public User GetUserByName(string name)                     //Method to get details by id
+        //{
+        //    using (TrainTicketBookingDbContext dbContext = new TrainTicketBookingDbContext())
+        //    {
+        //        return dbContext.User.Find(name);
+        //    }
+        //}
+        public bool UpdateProfile(User user)                    // Method to Update user
+        {
+            try
+            {
+                using (TrainTicketBookingDbContext dbContext = new TrainTicketBookingDbContext())
+                {
+                    dbContext.Entry(user).State = EntityState.Modified;
+                    dbContext.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public List<User> GetBlockedUserDetails()               //Method to get blocked user list
+        {
+            List<User> user = new List<User>();
+            using (TrainTicketBookingDbContext userDataBase = new TrainTicketBookingDbContext())
+            {
+                user = userDataBase.User.Where(m => m.IsActive == false).ToList();
+            }
+            return user;
+        }
     }
 }
- 
